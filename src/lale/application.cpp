@@ -2,7 +2,7 @@
 
 #include <QDir>
 #include <QSettings>
-#include <QDebug>
+#include <QTime>
 #include <qglobal.h>
 #include "gui/mainwindow.h"
 #include "core/questionreader.h"
@@ -13,6 +13,8 @@ using namespace lale::core;
 
 Application::Application(int&argc, char**&argv) : QApplication(argc, argv)
 {
+    qsrand(QTime::currentTime().msec());
+
     setQuestionsFilePath("questions.csv.dist");
     setQuestionsFilePath("questions.csv");
     setQuestionsFilePath(QDir(applicationDirPath()).filePath("questions.csv.dist"));
