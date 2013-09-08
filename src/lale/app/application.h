@@ -1,11 +1,11 @@
-#ifndef LALE_APPLICATION_H
-#define LALE_APPLICATION_H
+#ifndef LALE_APP_APPLICATION_H
+#define LALE_APP_APPLICATION_H
 
 #include <QApplication>
 #include <QFile>
 #include "core/question.h"
 
-namespace lale {
+namespace lale { namespace app {
 
 class Application : public QApplication
 {
@@ -33,6 +33,6 @@ public slots:
     
 };
 
-}
+}}
 
-#endif // LALE_APPLICATION_H
+#endif // LALE_APP_APPLICATION_H

@@ -14,16 +14,16 @@ CONFIG += qxt
 QXT += core gui
 
 SOURCES += main.cpp \
-    gui/mainwindow.cpp \
-    application.cpp \
+    app/application.cpp \
     core/question.cpp \
-    core/questionreader.cpp
+    core/questionreader.cpp \
+    gui/mainwindow.cpp
 
 HEADERS  += \
-    gui/mainwindow.h \
-    application.h \
+    app/application.h \
     core/question.h \
-    core/questionreader.h
+    core/questionreader.h \
+    gui/mainwindow.h
 
-FORMS    += \
+FORMS += \
     gui/mainwindow.ui

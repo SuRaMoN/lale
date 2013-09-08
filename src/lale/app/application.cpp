@@ -10,6 +10,7 @@
 using namespace lale;
 using namespace lale::gui;
 using namespace lale::core;
+using namespace lale::app;
 
 Application::Application(int&argc, char**&argv) : QApplication(argc, argv)
 {

@@ -1,7 +1,7 @@
-#include "application.h"
+#include "app/application.h"
 
 int main(int argc, char *argv[])
 {
-    lale::Application application(argc, argv);
+    lale::app::Application application(argc, argv);
     return application.exec();
 }
