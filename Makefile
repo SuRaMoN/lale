@@ -1,5 +1,5 @@
  
-.PHONY: lale tests run-tests
+.PHONY: lale build-deps-ubuntu tests run-tests clean
 SHELL := bash
 
 lale:
