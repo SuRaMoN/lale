@@ -3,19 +3,20 @@
 #include <QDir>
 #include <QSettings>
 #include <QTime>
+#include <QPointer>
 #include <qglobal.h>
 #include "gui/mainwindow.h"
 #include "core/questionreader.h"
+#include "learningstrategies/naivelearner.h"
 
 using namespace lale;
 using namespace lale::gui;
 using namespace lale::core;
 using namespace lale::app;
+using namespace lale::learningstrategies;
 
 Application::Application(int&argc, char**&argv) : QApplication(argc, argv)
 {
-    qsrand(QTime::currentTime().msec());
-
     setQuestionsFilePath("questions.csv.dist");
     setQuestionsFilePath("questions.csv");
     setQuestionsFilePath(QDir(applicationDirPath()).filePath("questions.csv.dist"));
@@ -58,14 +59,17 @@ void Application::readQuestionFile()
 
 int Application::exec()
 {
+    qsrand(QTime::currentTime().msec());
+
     Application::parseAllConfigs();
     readQuestionFile();
+    QPointer<Learner> learner = new NaiveLearner(questions);
 
     MainWindow mainWindow;
-    connect(&mainWindow, SIGNAL(questionChangeRequest()), this, SLOT(provideNewQuestion()));
-    connect(this, SIGNAL(newQuestion(core::Question)), &mainWindow, SLOT(changeQuestion(core::Question)));
+    connect(&mainWindow, SIGNAL(questionChangeRequest()), learner, SLOT(provideNewQuestion()));
+    connect(learner, SIGNAL(newQuestion(lale::core::Question)), &mainWindow, SLOT(changeQuestion(lale::core::Question)));
 
-    provideNewQuestion();
+    learner->provideNewQuestion();
 
     mainWindow.show();
     return QApplication::exec();
@@ -75,8 +79,3 @@ Application::~Application()
 {
 }
 
-void Application::provideNewQuestion()
-{
-    Question question = questions[qrand() % questions.length()];
-    emit newQuestion(question);
-}

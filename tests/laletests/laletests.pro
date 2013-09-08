@@ -20,18 +20,27 @@ DEPENDPATH += ../../src/lale
 RESOURCES = testdata.qrc \
     testdata.qrc
 
+# test sources/headers
+SOURCES += main.cpp \
+    core/questionreadertest.cpp \
+    learningstrategies/naivelearnertest.cpp \
+    learningstrategies/questionsignalfetcher.cpp
+
+HEADERS  += \
+    core/questionreadertest.h \
+    learningstrategies/naivelearnertest.h \
+    learningstrategies/questionsignalfetcher.h
+
 # logic sources/headers
 SOURCES += \
     core/questionreader.cpp \
-    core/question.cpp
+    core/question.cpp \
+    learningstrategies/learner.cpp \
+    learningstrategies/naivelearner.cpp
+
 HEADERS  += \
     core/questionreader.h \
-    core/question.h
+    core/question.h \
+    learningstrategies/learner.h \
+    learningstrategies/naivelearner.h
 
-
-# test sources/headers
-SOURCES += main.cpp \
-    core/questionreadertest.cpp
-
-HEADERS  += \
-    core/questionreadertest.h

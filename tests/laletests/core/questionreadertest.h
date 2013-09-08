@@ -8,11 +8,10 @@ namespace laletests { namespace core {
 class QuestionReaderTest : public QObject
 {
     Q_OBJECT
+
 public:
     explicit QuestionReaderTest(QObject *parent = 0);
-    ~QuestionReaderTest();
-    
-signals:
+    virtual ~QuestionReaderTest();
 
 private slots:
     void testFetchingQuestions();

@@ -26,10 +26,8 @@ public:
     virtual ~Application();
     
 signals:
-    void newQuestion(core::Question);
     
 public slots:
-    void provideNewQuestion();
     
 };
 

@@ -25,7 +25,7 @@ private:
     Ui::MainWindow *ui;
 
 public slots:
-    void changeQuestion(core::Question);
+    void changeQuestion(lale::core::Question);
     void answerVerified();
     void showAnswer();
 

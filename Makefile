@@ -1,5 +1,6 @@
  
 .PHONY: lale tests run-tests
+SHELL := bash
 
 lale:
 	ROOT="$$(pwd)" && \
@@ -9,6 +10,9 @@ lale:
 	make -j && \
 	cp lale "$$ROOT"
 
+build-deps-ubuntu:
+	sudo apt-get install qt5-default qt4-qmake libqxt-dev
+
 tests:
 	ROOT="$$(pwd)" && \
 	mkdir -p build/tests && \
@@ -16,9 +20,9 @@ tests:
 	qmake "$$ROOT/tests/laletests" && \
 	make -j
 
-clean:
-	rm -R build/* && true
-
 run-tests: tests
 	build/tests/laletests
+
+clean:
+	rm -R build/* && true
 
