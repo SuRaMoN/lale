@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT += core
+QT += core sql
 
 QT -= gui
 
@@ -17,30 +17,34 @@ TEMPLATE = app
 
 INCLUDEPATH += ../../src/lale
 DEPENDPATH += ../../src/lale
-RESOURCES = testdata.qrc \
-    testdata.qrc
+
+RESOURCES = testdata.qrc
 
 # test sources/headers
 SOURCES += main.cpp \
     core/questionreadertest.cpp \
     learningstrategies/naivelearnertest.cpp \
-    learningstrategies/questionsignalfetcher.cpp
+    learningstrategies/questionsignalfetcher.cpp \
+    app/dbmigratortest.cpp
 
 HEADERS  += \
     core/questionreadertest.h \
     learningstrategies/naivelearnertest.h \
-    learningstrategies/questionsignalfetcher.h
+    learningstrategies/questionsignalfetcher.h \
+    app/dbmigratortest.h
 
 # logic sources/headers
 SOURCES += \
     core/questionreader.cpp \
     core/question.cpp \
     learningstrategies/learner.cpp \
-    learningstrategies/naivelearner.cpp
+    learningstrategies/naivelearner.cpp \
+    app/dbmigrator.cpp
 
 HEADERS  += \
     core/questionreader.h \
     core/question.h \
     learningstrategies/learner.h \
-    learningstrategies/naivelearner.h
+    learningstrategies/naivelearner.h \
+    app/dbmigrator.h
 

@@ -11,7 +11,7 @@ lale:
 	cp lale "$$ROOT"
 
 build-deps-ubuntu:
-	sudo apt-get install qt5-default qt4-qmake libqxt-dev
+	sudo apt-get install qt5-default qt4-qmake libqxt-dev libqt4-sql-sqlite
 
 tests:
 	ROOT="$$(pwd)" && \

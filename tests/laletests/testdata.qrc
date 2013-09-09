@@ -1,5 +1,7 @@
- <!DOCTYPE RCC><RCC version="1.0">
- <qresource>
-     <file>core/testdata/vocabularium.csv</file>
- </qresource>
- </RCC> 
+<RCC>
+    <qresource prefix="/">
+        <file>core/testdata/vocabularium.csv</file>
+        <file>app/testdata/migrations/migration1.sql</file>
+        <file>app/testdata/migrations/migration2.sql</file>
+    </qresource>
+</RCC>

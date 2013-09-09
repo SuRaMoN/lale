@@ -5,9 +5,12 @@
 #include <QTime>
 #include <QPointer>
 #include <qglobal.h>
+#include <QResource>
+#include <QDebug>
 #include "gui/mainwindow.h"
 #include "core/questionreader.h"
 #include "learningstrategies/naivelearner.h"
+#include "dbmigrator.h"
 
 using namespace lale;
 using namespace lale::gui;
@@ -15,8 +18,11 @@ using namespace lale::core;
 using namespace lale::app;
 using namespace lale::learningstrategies;
 
-Application::Application(int&argc, char**&argv) : QApplication(argc, argv)
+Application::Application(int&argc, char**&argv) :
+    QApplication(argc, argv),
+    db(QSqlDatabase::addDatabase("QSQLITE"))
 {
+
     setQuestionsFilePath("questions.csv.dist");
     setQuestionsFilePath("questions.csv");
     setQuestionsFilePath(QDir(applicationDirPath()).filePath("questions.csv.dist"));
@@ -37,6 +43,17 @@ void Application::parseAllConfigs()
     parseConfig("lale.ini.dist");
     parseConfig("lale.ini");
     parseConfig("~/.lale.ini");
+}
+
+void Application::initDb()
+{
+    db.setDatabaseName("lale.db");
+    db.open();
+}
+
+void Application::performMigrations()
+{
+    DbMigrator(db).migrate(QDir(":/dbmigrations").entryInfoList());
 }
 
 void Application::parseConfig(const QString & configFilePath)
@@ -61,8 +78,11 @@ int Application::exec()
 {
     qsrand(QTime::currentTime().msec());
 
-    Application::parseAllConfigs();
+    parseAllConfigs();
+    initDb();
+    performMigrations();
     readQuestionFile();
+
     QPointer<Learner> learner = new NaiveLearner(questions);
 
     MainWindow mainWindow;

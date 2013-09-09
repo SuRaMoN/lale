@@ -1,7 +1,7 @@
 
 before_install:
  - sudo apt-get update -qq
- - sudo apt-get install -qq libqxt-dev 
+ - sudo apt-get install -qq libqxt-dev libqt4-sql-sqlite
 
 script: "make run-tests"
 

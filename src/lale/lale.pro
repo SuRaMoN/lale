@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT += core gui
+QT += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,13 +13,17 @@ TEMPLATE = app
 CONFIG += qxt
 QXT += core gui
 
+RESOURCES = dbmigrations.qrc
+
 SOURCES += main.cpp \
     app/application.cpp \
     core/question.cpp \
     core/questionreader.cpp \
     gui/mainwindow.cpp \
     learningstrategies/naivelearner.cpp \
-    learningstrategies/learner.cpp
+    learningstrategies/learner.cpp \
+    core/scorerepository.cpp \
+    app/dbmigrator.cpp
 
 HEADERS  += \
     app/application.h \
@@ -27,7 +31,9 @@ HEADERS  += \
     core/questionreader.h \
     gui/mainwindow.h \
     learningstrategies/naivelearner.h \
-    learningstrategies/learner.h
+    learningstrategies/learner.h \
+    core/scorerepository.h \
+    app/dbmigrator.h
 
 FORMS += \
     gui/mainwindow.ui

@@ -1,0 +1,7 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+	<qresource>
+		<file>dbmigrations/2013-09-09.01 - all combined.sql</file>
+		<file>dbmigrations/2013-09-09.02 - initial.sql</file>
+	</qresource>
+</RCC> 
