@@ -1,7 +1,6 @@
 #include "scorerepository.h"
 
 #include "app/lale.h"
-#include "entitynotfoundexception.h"
 
 using namespace lale::core;
 

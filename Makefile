@@ -1,5 +1,5 @@
  
-.PHONY: lale build-deps-ubuntu tests run-tests clean
+.PHONY: lale get-deps-ubuntu tests run-tests clean
 SHELL := bash
 
 lale:
@@ -10,7 +10,10 @@ lale:
 	make -j && \
 	cp lale "$$ROOT"
 
-build-deps-ubuntu:
+run: lale
+	./lale
+
+get-deps-ubuntu:
 	sudo apt-get install qt5-default qt4-qmake libqxt-dev libqt4-sql-sqlite
 
 tests:

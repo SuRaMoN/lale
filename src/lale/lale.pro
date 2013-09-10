@@ -25,8 +25,7 @@ SOURCES += main.cpp \
     learningstrategies/naivelearner.cpp \
     learningstrategies/learner.cpp \
     core/scorerepository.cpp \
-    app/dbmigrator.cpp \
-    core/entitynotfoundexception.cpp
+    app/dbmigrator.cpp
 
 HEADERS  += app/lale.h \
     app/application.h \
@@ -37,7 +36,6 @@ HEADERS  += app/lale.h \
     learningstrategies/learner.h \
     core/scorerepository.h \
     app/dbmigrator.h \
-    core/entitynotfoundexception.h \
     app/lale.h
 
 FORMS += \
