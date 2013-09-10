@@ -1,13 +1,12 @@
 #ifndef LALETESTS_CORE_DBMIGRATORTEST_H
 #define LALETESTS_CORE_DBMIGRATORTEST_H
 
-#include <QObject>
-#include <QSqlDatabase>
-#include <QTemporaryFile>
+#include "app/lale.h"
+#include "testhelpers/testcase.h"
 
 namespace laletests { namespace core {
 
-class DbMigratorTest : public QObject
+class DbMigratorTest : public laletests::testhelpers::TestCase
 {
     Q_OBJECT
 

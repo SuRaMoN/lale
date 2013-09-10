@@ -1,16 +1,13 @@
 #include "dbmigratortest.h"
 
-#include <QDir>
-#include <QDebug>
-#include <QTest>
-#include <QSqlQuery>
+#include "app/lale.h"
 #include "app/dbmigrator.h"
 
 using namespace laletests::core;
 using namespace lale::app;
 
 
-DbMigratorTest::DbMigratorTest(QObject *)
+DbMigratorTest::DbMigratorTest(QObject * parent) : TestCase(parent)
 {
 }
 

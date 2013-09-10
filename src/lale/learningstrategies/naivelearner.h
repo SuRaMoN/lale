@@ -1,7 +1,7 @@
 #ifndef LALE_LEARNINGSTRATEGIES_NAIVELEARNER_H
 #define LALE_LEARNINGSTRATEGIES_NAIVELEARNER_H
 
-#include <QObject>
+#include "app/lale.h"
 #include "learner.h"
 
 namespace lale { namespace learningstrategies {

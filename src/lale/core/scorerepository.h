@@ -1,8 +1,7 @@
 #ifndef LALE_CORE_SCOREREPOSITORY_H
 #define LALE_CORE_SCOREREPOSITORY_H
 
-#include <QObject>
-#include <QSqlDatabase>
+#include "app/lale.h"
 #include "question.h"
 
 namespace lale { namespace core {
@@ -18,6 +17,7 @@ public:
     explicit ScoreRepository(QSqlDatabase, QObject *parent = 0);
     virtual ~ScoreRepository();
     double getScoreFor(Question);
+    void updateScoreFor(Question, double);
     
 signals:
     

@@ -1,8 +1,6 @@
 #include "naivelearnertest.h"
 
-#include <QList>
-#include <QTest>
-#include <QDebug>
+#include "app/lale.h"
 #include "learningstrategies/naivelearner.h"
 #include "learningstrategies/questionsignalfetcher.h"
 
@@ -10,7 +8,7 @@ using namespace laletests::learningstrategies;
 using namespace lale::core;
 using namespace lale::learningstrategies;
 
-NaiveLearnerTest::NaiveLearnerTest(QObject *parent) : QObject(parent)
+NaiveLearnerTest::NaiveLearnerTest(QObject *parent) : TestCase(parent)
 {
 }
 

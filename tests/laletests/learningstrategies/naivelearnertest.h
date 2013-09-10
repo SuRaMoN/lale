@@ -1,11 +1,12 @@
 #ifndef LALETESTS_LEARNINGSTRATEGIES_NAIVELEARNERTEST_H
 #define LALETESTS_LEARNINGSTRATEGIES_NAIVELEARNERTEST_H
 
-#include <QObject>
+#include "app/lale.h"
+#include "testhelpers/testcase.h"
 
 namespace laletests { namespace learningstrategies {
 
-class NaiveLearnerTest : public QObject
+class NaiveLearnerTest : public laletests::testhelpers::TestCase
 {
     Q_OBJECT
 

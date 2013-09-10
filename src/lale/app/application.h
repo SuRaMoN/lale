@@ -1,9 +1,7 @@
 #ifndef LALE_APP_APPLICATION_H
 #define LALE_APP_APPLICATION_H
 
-#include <QApplication>
-#include <QFile>
-#include <QSqlDatabase>
+#include "lale.h"
 #include "core/question.h"
 
 namespace lale { namespace app {

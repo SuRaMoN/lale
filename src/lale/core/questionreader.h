@@ -1,8 +1,7 @@
 #ifndef QUESTIONREADER_H
 #define QUESTIONREADER_H
 
-#include <QObject>
-#include <QIODevice>
+#include "app/lale.h"
 #include "question.h"
 
 namespace lale { namespace core {

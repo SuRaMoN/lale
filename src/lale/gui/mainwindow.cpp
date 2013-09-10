@@ -1,10 +1,9 @@
 #include "gui/mainwindow.h"
+
 #include "ui_mainwindow.h"
 
 using namespace lale::gui;
 using namespace lale::core;
-
-
 
 MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWindow)
 {

@@ -1,11 +1,12 @@
-#ifndef QUESTIONREADERTEST_H
-#define QUESTIONREADERTEST_H
+#ifndef LALETESTS_CORE_QUESTIONREADERTEST_H
+#define LALETESTS_CORE_QUESTIONREADERTEST_H
 
-#include <QObject>
+#include "app/lale.h"
+#include "testhelpers/testcase.h"
 
 namespace laletests { namespace core {
 
-class QuestionReaderTest : public QObject
+class QuestionReaderTest : public laletests::testhelpers::TestCase
 {
     Q_OBJECT
 
@@ -19,4 +20,4 @@ private slots:
 
 }}
 
-#endif // QUESTIONREADERTEST_H
+#endif // LALETESTS_CORE_QUESTIONREADERTEST_H

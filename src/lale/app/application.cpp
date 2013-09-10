@@ -1,12 +1,6 @@
 #include "application.h"
 
-#include <QDir>
-#include <QSettings>
-#include <QTime>
-#include <QPointer>
-#include <qglobal.h>
-#include <QResource>
-#include <QDebug>
+#include "app/lale.h"
 #include "gui/mainwindow.h"
 #include "core/questionreader.h"
 #include "learningstrategies/naivelearner.h"

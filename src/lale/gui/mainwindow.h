@@ -1,7 +1,7 @@
 #ifndef LALE_GUI_MAINWINDOW_H
 #define LALE_GUI_MAINWINDOW_H
 
-#include <QMainWindow>
+#include "app/lale.h"
 #include "core/question.h"
 
 namespace Ui {

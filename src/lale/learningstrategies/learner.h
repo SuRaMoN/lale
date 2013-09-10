@@ -1,8 +1,7 @@
 #ifndef LALE_LEARNINGSTRATEGIES_LEARNER_H
 #define LALE_LEARNINGSTRATEGIES_LEARNER_H
 
-#include <QObject>
-#include <QList>
+#include "app/lale.h"
 #include "core/question.h"
 
 namespace lale { namespace learningstrategies {

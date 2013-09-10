@@ -1,9 +1,7 @@
 #ifndef LALE_APP_DBMIGRATOR_H
 #define LALE_APP_DBMIGRATOR_H
 
-#include <QObject>
-#include <QSqlDatabase>
-#include <QFileInfoList>
+#include "lale.h"
 
 namespace lale { namespace app {
 

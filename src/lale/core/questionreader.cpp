@@ -1,6 +1,6 @@
 #include "questionreader.h"
 
-#include <QxtCsvModel>
+#include "app/lale.h"
 
 using namespace lale::core;
 
