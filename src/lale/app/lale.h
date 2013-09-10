@@ -18,7 +18,6 @@
 #include <QSqlQuery>
 #include <QString>
 #include <QStringList>
-#include <QTest>
 #include <QTextStream>
 #include <QTime>
 #include <QVariant>
