@@ -16,3 +16,11 @@ void NaiveLearner::provideNewQuestion()
     Question question = questions[qrand() % questions.length()];
     emit newQuestion(question);
 }
+
+void NaiveLearner::wrongAnswerGiven(Question)
+{
+}
+
+void NaiveLearner::correctAnswerGiven(Question)
+{
+}

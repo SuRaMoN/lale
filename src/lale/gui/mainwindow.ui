@@ -112,58 +112,11 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections>
-  <connection>
-   <sender>wrong</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>answerVerified()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>102</x>
-     <y>277</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>52</x>
-     <y>278</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>right</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>answerVerified()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>292</x>
-     <y>278</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>381</x>
-     <y>279</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>showAnswer</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>showAnswer()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>219</x>
-     <y>277</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>254</x>
-     <y>262</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
  <slots>
   <slot>answerVerified()</slot>
   <slot>showAnswer()</slot>
+  <slot>markedAsWrongAnwser()</slot>
+  <slot>markedAsCorrectAnwser()</slot>
  </slots>
 </ui>

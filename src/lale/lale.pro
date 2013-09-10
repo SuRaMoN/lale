@@ -1,8 +1,3 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2013-09-07T17:42:14
-#
-#-------------------------------------------------
 
 QT += core gui sql
 
@@ -25,7 +20,8 @@ SOURCES += main.cpp \
     learningstrategies/naivelearner.cpp \
     learningstrategies/learner.cpp \
     core/scorerepository.cpp \
-    app/dbmigrator.cpp
+    app/dbmigrator.cpp \
+    learningstrategies/simplelearner.cpp
 
 HEADERS  += app/lale.h \
     app/application.h \
@@ -36,7 +32,8 @@ HEADERS  += app/lale.h \
     learningstrategies/learner.h \
     core/scorerepository.h \
     app/dbmigrator.h \
-    app/lale.h
+    app/lale.h \
+    learningstrategies/simplelearner.h
 
 FORMS += \
     gui/mainwindow.ui

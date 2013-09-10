@@ -19,6 +19,8 @@ signals:
     
 public slots:
     void provideNewQuestion();
+    void wrongAnswerGiven(lale::core::Question);
+    void correctAnswerGiven(lale::core::Question);
 };
 
 }}

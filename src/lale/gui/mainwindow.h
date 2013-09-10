@@ -15,22 +15,25 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 protected:
-    QString currentAnswer;
+    lale::core::Question currentQuestion;
 
 public:
     explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+    virtual ~MainWindow();
     
 private:
     Ui::MainWindow *ui;
 
 public slots:
     void changeQuestion(lale::core::Question);
-    void answerVerified();
-    void showAnswer();
+    void on_wrong_clicked();
+    void on_right_clicked();
+    void on_showAnswer_clicked();
 
 signals:
     void questionChangeRequest();
+    void wrongAnwserGiven(lale::core::Question);
+    void rightAnwserGiven(lale::core::Question);
 };
 
 }}
