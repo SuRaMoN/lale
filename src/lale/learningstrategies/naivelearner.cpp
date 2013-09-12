@@ -21,6 +21,6 @@ void NaiveLearner::wrongAnswerGiven(Question)
 {
 }
 
-void NaiveLearner::correctAnswerGiven(Question)
+void NaiveLearner::rightAnswerGiven(Question)
 {
 }

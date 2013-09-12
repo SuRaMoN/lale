@@ -1,7 +1,7 @@
 #ifndef LALETESTS_LEARNINGSTRATEGIES_NAIVELEARNERTEST_H
 #define LALETESTS_LEARNINGSTRATEGIES_NAIVELEARNERTEST_H
 
-#include "app/lale.h"
+#include "app/libs.h"
 #include "testhelpers/testcase.h"
 
 namespace laletests { namespace learningstrategies {

@@ -1,6 +1,6 @@
 #include "scorerepository.h"
 
-#include "app/lale.h"
+#include "app/libs.h"
 
 using namespace lale::core;
 
@@ -30,10 +30,16 @@ double ScoreRepository::getScoreFor(Question question)
 void ScoreRepository::updateScoreFor(Question question, double score)
 {
     QSqlQuery query(db);
-    query.prepare("REPLACE INTO score (question, score) VALUES (:question, :score)");
+    query.prepare("INSERT INTO score (question, score) VALUES (:question, :score)");
     query.bindValue(":question", question.getQuestion());
     query.bindValue(":score", score);
     if(!query.exec()) {
         throw query.lastError();
     }
+}
+
+void ScoreRepository::multiplyScoreWith(Question question, double factor)
+{
+    double oldScore = getScoreFor(question);
+    updateScoreFor(question, factor * oldScore);
 }

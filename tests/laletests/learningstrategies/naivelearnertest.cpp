@@ -1,6 +1,6 @@
 #include "naivelearnertest.h"
 
-#include "app/lale.h"
+#include "app/libs.h"
 #include "learningstrategies/naivelearner.h"
 #include "learningstrategies/questionsignalfetcher.h"
 

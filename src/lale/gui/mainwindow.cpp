@@ -20,13 +20,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_wrong_clicked()
 {
-    emit wrongAnwserGiven(currentQuestion);
+    emit wrongAnswerGiven(currentQuestion);
     emit questionChangeRequest();
 }
 
 void MainWindow::on_right_clicked()
 {
-    emit rightAnwserGiven(currentQuestion);
+    emit rightAnswerGiven(currentQuestion);
     emit questionChangeRequest();
 }
 

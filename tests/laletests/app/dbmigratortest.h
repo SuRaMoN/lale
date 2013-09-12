@@ -1,7 +1,7 @@
 #ifndef LALETESTS_CORE_DBMIGRATORTEST_H
 #define LALETESTS_CORE_DBMIGRATORTEST_H
 
-#include "app/lale.h"
+#include "app/libs.h"
 #include "testhelpers/testcase.h"
 
 namespace laletests { namespace core {

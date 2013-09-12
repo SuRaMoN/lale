@@ -1,7 +1,7 @@
 #ifndef LALE_LEARNINGSTRATEGIES_LEARNER_H
 #define LALE_LEARNINGSTRATEGIES_LEARNER_H
 
-#include "app/lale.h"
+#include "app/libs.h"
 #include "core/question.h"
 
 namespace lale { namespace learningstrategies {
@@ -23,7 +23,7 @@ signals:
 public slots:
     virtual void provideNewQuestion() = 0;
     virtual void wrongAnswerGiven(lale::core::Question) = 0;
-    virtual void correctAnswerGiven(lale::core::Question) = 0;
+    virtual void rightAnswerGiven(lale::core::Question) = 0;
 };
 
 }}

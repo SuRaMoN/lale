@@ -1,9 +1,10 @@
 #include "application.h"
 
-#include "app/lale.h"
+#include "app/libs.h"
 #include "gui/mainwindow.h"
 #include "core/questionreader.h"
 #include "learningstrategies/naivelearner.h"
+#include "learningstrategies/simplelearner.h"
 #include "dbmigrator.h"
 
 using namespace lale;
@@ -77,10 +78,13 @@ int Application::exec()
     performMigrations();
     readQuestionFile();
 
-    QPointer<Learner> learner = new NaiveLearner(questions);
+    QPointer<ScoreRepository> scoreRepo = new ScoreRepository(db);
+    QPointer<Learner> learner = new SimpleLearner(questions, scoreRepo);
 
     MainWindow mainWindow;
     connect(&mainWindow, SIGNAL(questionChangeRequest()), learner, SLOT(provideNewQuestion()));
+    connect(&mainWindow, SIGNAL(wrongAnswerGiven(lale::core::Question)), learner, SLOT(wrongAnswerGiven(lale::core::Question)));
+    connect(&mainWindow, SIGNAL(rightAnswerGiven(lale::core::Question)), learner, SLOT(rightAnswerGiven(lale::core::Question)));
     connect(learner, SIGNAL(newQuestion(lale::core::Question)), &mainWindow, SLOT(changeQuestion(lale::core::Question)));
 
     learner->provideNewQuestion();

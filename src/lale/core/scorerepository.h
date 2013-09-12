@@ -1,7 +1,7 @@
 #ifndef LALE_CORE_SCOREREPOSITORY_H
 #define LALE_CORE_SCOREREPOSITORY_H
 
-#include "app/lale.h"
+#include "app/libs.h"
 #include "question.h"
 
 namespace lale { namespace core {
@@ -18,6 +18,7 @@ public:
     virtual ~ScoreRepository();
     double getScoreFor(Question);
     void updateScoreFor(Question, double);
+    void multiplyScoreWith(Question, double);
     
 signals:
     

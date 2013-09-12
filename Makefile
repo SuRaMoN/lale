@@ -1,5 +1,5 @@
  
-.PHONY: lale get-deps-ubuntu tests run-tests clean
+.PHONY: lale get-deps-ubuntu tests run-tests benchmarks run-benchmarks clean
 SHELL := bash
 
 lale:
@@ -25,6 +25,16 @@ tests:
 
 run-tests: tests
 	build/tests/laletests
+
+benchmarks:
+	ROOT="$$(pwd)" && \
+	mkdir -p build/benchmarks && \
+	cd build/benchmarks && \
+	qmake "$$ROOT/benchmarks/lalebenchmarks" && \
+	make -j
+
+run-benchmarks: benchmarks
+	build/benchmarks/lalebenchmarks
 
 clean:
 	rm -R build/* && true

@@ -1,6 +1,6 @@
 #include "questionreadertest.h"
 
-#include "app/lale.h"
+#include "app/libs.h"
 #include "core/questionreader.h"
 
 using namespace laletests::core;

@@ -1,7 +1,7 @@
 #ifndef QUESTIONSIGNALFETCHER_H
 #define QUESTIONSIGNALFETCHER_H
 
-#include "app/lale.h"
+#include "app/libs.h"
 #include "core/question.h"
 
 namespace laletests { namespace learningstrategies {

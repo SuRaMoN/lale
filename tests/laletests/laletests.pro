@@ -5,8 +5,8 @@ QT -= gui
 TARGET = laletests
 CONFIG += console qxt qtestlib precompile_header
 CONFIG -= app_bundle
-QXT += core gui
-PRECOMPILED_HEADER = app/lale.h
+QXT += core
+PRECOMPILED_HEADER = app/libs.h
 DEFINES += USING_PCH
 
 TEMPLATE = app
@@ -24,7 +24,8 @@ SOURCES += main.cpp \
     learningstrategies/questionsignalfetcher.cpp \
     app/dbmigratortest.cpp \
     testhelpers/testcase.cpp \
-    core/scorerepositorytest.cpp
+    core/scorerepositorytest.cpp \
+    core/roulettewheelselectortest.cpp
 
 HEADERS  += \
     core/questionreadertest.h \
@@ -32,7 +33,8 @@ HEADERS  += \
     learningstrategies/questionsignalfetcher.h \
     app/dbmigratortest.h \
     testhelpers/testcase.h \
-    core/scorerepositorytest.h
+    core/scorerepositorytest.h \
+    core/roulettewheelselectortest.h
 
 # logic sources/headers
 SOURCES += \
@@ -41,12 +43,16 @@ SOURCES += \
     learningstrategies/learner.cpp \
     learningstrategies/naivelearner.cpp \
     app/dbmigrator.cpp \
-    core/scorerepository.cpp
+    core/scorerepository.cpp \
+    core/randomgenerator.cpp
 
-HEADERS += app/lale.h \
+HEADERS += app/libs.h \
     core/questionreader.h \
     core/question.h \
     learningstrategies/learner.h \
     learningstrategies/naivelearner.h \
     app/dbmigrator.h \
-    core/scorerepository.h
+    core/scorerepository.h \
+    core/roulettewheelselector.h \
+    core/roulettearea.h \
+    core/randomgenerator.h

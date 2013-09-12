@@ -1,7 +1,7 @@
 #ifndef LALE_APP_DBMIGRATOR_H
 #define LALE_APP_DBMIGRATOR_H
 
-#include "lale.h"
+#include "libs.h"
 
 namespace lale { namespace app {
 

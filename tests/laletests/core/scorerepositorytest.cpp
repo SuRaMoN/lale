@@ -1,6 +1,6 @@
 #include "scorerepositorytest.h"
 
-#include "app/lale.h"
+#include "app/libs.h"
 #include "core/scorerepository.h"
 
 using namespace laletests::core;

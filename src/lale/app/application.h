@@ -1,7 +1,7 @@
 #ifndef LALE_APP_APPLICATION_H
 #define LALE_APP_APPLICATION_H
 
-#include "lale.h"
+#include "libs.h"
 #include "core/question.h"
 
 namespace lale { namespace app {
@@ -26,11 +26,6 @@ public:
     explicit Application(int&, char**&);
     int exec();
     virtual ~Application();
-    
-signals:
-    
-public slots:
-    
 };
 
 }}

@@ -2,7 +2,7 @@
 #define LALETESTS_TESTHELPERS_TESTCASE_H
 
 #include <QTest>
-#include "app/lale.h"
+#include "app/libs.h"
 
 namespace laletests { namespace testhelpers {
 

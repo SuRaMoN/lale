@@ -1,6 +1,6 @@
 #include "dbmigrator.h"
 
-#include "app/lale.h"
+#include "app/libs.h"
 
 using namespace lale::app;
 
@@ -22,10 +22,10 @@ void DbMigrator::migrate(QFileInfoList migrations)
         QFile migrationFile(migration.filePath());
         migrationFile.open(QIODevice::ReadOnly | QIODevice::Text);
         foreach(const QString & line, QTextStream(&migrationFile).readAll().split("\n")) {
-            db.transaction();
             if(line.trimmed() == "") {
                 continue;
             }
+            db.transaction();
             QSqlQuery query(db);
             query.prepare(line);
             query.exec();

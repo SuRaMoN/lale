@@ -1,8 +1,9 @@
 #ifndef LALE_LEARNINGSTRATEGIES_SIMPLELEARNER_H
 #define LALE_LEARNINGSTRATEGIES_SIMPLELEARNER_H
 
-#include "app/lale.h"
+#include "app/libs.h"
 #include "learner.h"
+#include "core/scorerepository.h"
 
 namespace lale { namespace learningstrategies {
 
@@ -10,16 +11,16 @@ class SimpleLearner : public Learner
 {
     Q_OBJECT
 
+    QPointer<lale::core::ScoreRepository> scoreRepo;
+
 public:
-    explicit SimpleLearner(QList<core::Question>, QObject *parent = 0);
+    explicit SimpleLearner(QList<core::Question>, QPointer<lale::core::ScoreRepository>, QObject *parent = 0);
     virtual ~SimpleLearner();
-    
-signals:
-    
+
 public slots:
     void provideNewQuestion();
     void wrongAnswerGiven(lale::core::Question);
-    void correctAnswerGiven(lale::core::Question);
+    void rightAnswerGiven(lale::core::Question);
 };
 
 }}

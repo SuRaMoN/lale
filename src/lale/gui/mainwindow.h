@@ -1,7 +1,7 @@
 #ifndef LALE_GUI_MAINWINDOW_H
 #define LALE_GUI_MAINWINDOW_H
 
-#include "app/lale.h"
+#include "app/libs.h"
 #include "core/question.h"
 
 namespace Ui {
@@ -32,8 +32,8 @@ public slots:
 
 signals:
     void questionChangeRequest();
-    void wrongAnwserGiven(lale::core::Question);
-    void rightAnwserGiven(lale::core::Question);
+    void wrongAnswerGiven(lale::core::Question);
+    void rightAnswerGiven(lale::core::Question);
 };
 
 }}

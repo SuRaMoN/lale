@@ -1,7 +1,7 @@
 #ifndef LALE_CORE_QUESTION_H
 #define LALE_CORE_QUESTION_H
 
-#include "app/lale.h"
+#include "app/libs.h"
 
 namespace lale { namespace core {
 

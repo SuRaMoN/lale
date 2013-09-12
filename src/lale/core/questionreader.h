@@ -1,7 +1,7 @@
-#ifndef QUESTIONREADER_H
-#define QUESTIONREADER_H
+#ifndef LALE_CORE_QUESTIONREADER_H
+#define LALE_CORE_QUESTIONREADER_H
 
-#include "app/lale.h"
+#include "app/libs.h"
 #include "question.h"
 
 namespace lale { namespace core {
@@ -13,14 +13,9 @@ class QuestionReader : public QObject
 public:
     explicit QuestionReader(QObject *parent = 0);
     QList<Question> fetchAllQuestions(QIODevice &file);
-    virtual ~QuestionReader();
-
-signals:
-    
-public slots:
-    
+    virtual ~QuestionReader();    
 };
 
 }}
 
-#endif // QUESTIONREADER_H
+#endif // LALE_CORE_QUESTIONREADER_H

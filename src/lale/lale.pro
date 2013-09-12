@@ -7,7 +7,7 @@ TARGET = lale
 TEMPLATE = app
 CONFIG += qxt precompile_header
 QXT += core gui
-PRECOMPILED_HEADER = app/lale.h
+PRECOMPILED_HEADER = app/libs.h
 DEFINES += USING_PCH
 
 RESOURCES = dbmigrations.qrc
@@ -21,9 +21,10 @@ SOURCES += main.cpp \
     learningstrategies/learner.cpp \
     core/scorerepository.cpp \
     app/dbmigrator.cpp \
-    learningstrategies/simplelearner.cpp
+    learningstrategies/simplelearner.cpp \
+    core/randomgenerator.cpp
 
-HEADERS  += app/lale.h \
+HEADERS  += \
     app/application.h \
     core/question.h \
     core/questionreader.h \
@@ -32,8 +33,11 @@ HEADERS  += app/lale.h \
     learningstrategies/learner.h \
     core/scorerepository.h \
     app/dbmigrator.h \
-    app/lale.h \
-    learningstrategies/simplelearner.h
+    learningstrategies/simplelearner.h \
+    app/libs.h \
+    core/roulettewheelselector.h \
+    core/roulettearea.h \
+    core/randomgenerator.h
 
 FORMS += \
     gui/mainwindow.ui
