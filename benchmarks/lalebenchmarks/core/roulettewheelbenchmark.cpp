@@ -89,9 +89,9 @@ void RouletteWheelBenchmark::testRouletteSpeed_data()
     QTest::addColumn<int>("numInserts");
 
     QList<int> numInsertsList;
-    numInsertsList << 100 << 200 << 500 << 1000 << 2000 << 300 << 5000;
+    numInsertsList << 100 << 200 << 300 << 500 << 1000 << 2000 << 3000 << 4000 << 5000;
     foreach(int numInserts, numInsertsList) {
-        QTest::newRow(str(format("naive, %1%, 1000") % numInserts).c_str()) << true << numInserts;
-        QTest::newRow(str(format("optimized, %1%, 1000") % numInserts).c_str()) << false << numInserts;
+        QTest::newRow(str(format("naive (size: %1%, selects: 1000)") % numInserts).c_str()) << true << numInserts;
+        QTest::newRow(str(format("optimized (size: %1%, selects: 1000)") % numInserts).c_str()) << false << numInserts;
     }
 }

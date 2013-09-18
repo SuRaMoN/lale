@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     result |= QTest::qExec(rouletteWheelSelectorTest, argc, argv);
 
     if(result == 0) {
-        cout << endl << "Tests ran successfuly" << endl;
+        cout << endl << "Tests ran successfully" << endl;
     } else {
         cout << endl << "Failure in tests" << endl;
     }
