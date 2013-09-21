@@ -19,6 +19,9 @@ public:
     void setQuestion(const QString &value);
     QString getAnswer() const;
     void setAnswer(const QString &value);
+
+    bool operator < (const Question &) const;
+    bool operator == (const Question &) const;
 };
 
 }}

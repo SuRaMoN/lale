@@ -16,7 +16,6 @@ public:
     virtual ~RandomGenerator();
 
     double getRandomDouble(double min = 0, double max = 1);
-    int getRandomDouble();
 };
 
 }}

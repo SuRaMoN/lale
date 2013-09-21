@@ -7,9 +7,13 @@ using namespace lale::learningstrategies;
 using namespace lale::core;
 
 SimpleLearner::SimpleLearner(QList<Question> questions, QPointer<ScoreRepository> scoreRepo, QObject *parent) :
-    Learner(questions, parent)
+    Learner(questions, parent),
+    randomPicker(RandomGenerator())
 {
     this->scoreRepo = scoreRepo;
+    foreach(Question question, questions) {
+        randomPicker[question] = scoreRepo->getScoreFor(question);
+    }
 }
 
 
@@ -19,8 +23,7 @@ SimpleLearner::~SimpleLearner()
 
 void SimpleLearner::provideNewQuestion()
 {
-    Question question = questions[qrand() % questions.length()];
-    emit newQuestion(question);
+    emit newQuestion(randomPicker.pickRandom());
 }
 
 void SimpleLearner::wrongAnswerGiven(Question question)
@@ -31,4 +34,5 @@ void SimpleLearner::wrongAnswerGiven(Question question)
 void SimpleLearner::rightAnswerGiven(Question question)
 {
     scoreRepo->multiplyScoreWith(question, 0.5);
+    randomPicker[question] /= 2;
 }

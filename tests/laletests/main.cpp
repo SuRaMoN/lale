@@ -8,6 +8,7 @@
 #include "core/questionreadertest.h"
 #include "core/roulettewheelselectortest.h"
 #include "learningstrategies/naivelearnertest.h"
+#include "learningstrategies/simplelearnertest.h"
 
 using namespace QTest;
 using namespace std;
@@ -32,6 +33,9 @@ int main(int argc, char *argv[])
 
     QPointer<RouletteWheelSelectorTest> rouletteWheelSelectorTest = new RouletteWheelSelectorTest();
     result |= QTest::qExec(rouletteWheelSelectorTest, argc, argv);
+
+    QPointer<SimpleLearnerTest> simpleLearnerTest = new SimpleLearnerTest();
+    result |= QTest::qExec(simpleLearnerTest, argc, argv);
 
     if(result == 0) {
         cout << endl << "Tests ran successfully" << endl;

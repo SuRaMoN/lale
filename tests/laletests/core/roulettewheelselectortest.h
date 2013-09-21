@@ -3,7 +3,6 @@
 
 #include "app/libs.h"
 #include "testhelpers/testcase.h"
-#include "core/roulettewheelselector.h"
 
 namespace laletests { namespace core {
 

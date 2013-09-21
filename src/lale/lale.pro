@@ -36,7 +36,6 @@ HEADERS  += \
     learningstrategies/simplelearner.h \
     app/libs.h \
     core/roulettewheelselector.h \
-    core/roulettearea.h \
     core/randomgenerator.h
 
 FORMS += \

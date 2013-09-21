@@ -1,10 +1,11 @@
 #include "roulettewheelselectortest.h"
 
+#include "core/roulettewheelselector.h"
+
 using namespace laletests::core;
 using namespace lale::core;
 
-RouletteWheelSelectorTest::RouletteWheelSelectorTest(QObject *parent) :
-    TestCase(parent)
+RouletteWheelSelectorTest::RouletteWheelSelectorTest(QObject *parent) : TestCase(parent)
 {
 }
 
@@ -15,14 +16,12 @@ RouletteWheelSelectorTest::~RouletteWheelSelectorTest()
 
 void RouletteWheelSelectorTest::testSimpleRandomPicks()
 {
-    typedef RouletteWheelSelector<QString> RandomPicker;
+    RouletteWheelSelector<QString> randomPicker = RouletteWheelSelector<QString>(RandomGenerator());
 
-    QList<RandomPicker::Area> list;
-    list << RandomPicker::Area(QString("a"), 1.42)
-         << RandomPicker::Area(QString("b"), 2.85)
-         << RandomPicker::Area(QString("c"), 5.72);
+    randomPicker["a"] = 1.42;
+    randomPicker["b"] = 2.85;
+    randomPicker["c"] = 5.72;
 
-    RandomPicker randomPicker(list.constBegin(), list.constEnd(), RandomGenerator());
     for(int i = 0; i < 10; ++i) {
         QVERIFY(randomPicker.pickRandom() <= "c");
         QVERIFY(randomPicker.pickRandom() >= "a");
@@ -32,16 +31,14 @@ void RouletteWheelSelectorTest::testSimpleRandomPicks()
 void RouletteWheelSelectorTest::testFrequency()
 {
     const int NUM_ROTATIONS = 5000;
-    typedef RouletteWheelSelector<int> RandomPicker;
+    RouletteWheelSelector<int> randomPicker = RouletteWheelSelector<int>(RandomGenerator());
 
-    QList<RandomPicker::Area> list;
-    list << RandomPicker::Area(0, 3.22580645161)
-         << RandomPicker::Area(1, 6.45161290323)
-         << RandomPicker::Area(2, 12.9032258065)
-         << RandomPicker::Area(3, 25.8064516129)
-         << RandomPicker::Area(4, 51.6129032258); // sum off areas is 100
+    randomPicker[0] = 3.22580645161;
+    randomPicker[1] = 6.45161290323;
+    randomPicker[2] = 12.9032258065;
+    randomPicker[3] = 25.8064516129;
+    randomPicker[4] = 51.6129032258; // sum off areas is 100
 
-    RandomPicker randomPicker(list.constBegin(), list.constEnd(), RandomGenerator());
     int frenquency[] = {0, 0, 0, 0, 0};
     for(int i = 0; i < NUM_ROTATIONS; ++i) {
         frenquency[randomPicker.pickRandom()] += 1;

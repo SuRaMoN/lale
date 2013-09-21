@@ -32,3 +32,16 @@ void Question::setAnswer(const QString &value)
 {
     answer = value;
 }
+
+bool Question::operator < (const Question & that) const
+{
+    if(this->getQuestion() != that.getQuestion()) {
+        return this->getQuestion() < that.getQuestion();
+    }
+    return this->getAnswer() < that.getAnswer();
+}
+
+bool Question::operator == (const Question & that) const
+{
+    return this->getQuestion() == that.getQuestion() && this->getAnswer() == that.getAnswer();
+}

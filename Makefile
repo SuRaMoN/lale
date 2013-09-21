@@ -1,5 +1,5 @@
  
-.PHONY: lale get-deps-ubuntu tests run-tests benchmarks run-benchmarks clean
+.PHONY: lale run get-deps-ubuntu tests run-tests clean
 SHELL := bash
 
 lale:
@@ -14,7 +14,7 @@ run: lale
 	./lale
 
 get-deps-ubuntu:
-	sudo apt-get install libboost-dev qt5-default qt4-qmake libqxt-dev libqt4-sql-sqlite xsltproc
+	sudo apt-get install libboost-dev qt5-default qt4-qmake libqxt-dev libqt4-sql-sqlite
 
 tests:
 	ROOT="$$(pwd)" && \
@@ -25,21 +25,6 @@ tests:
 
 run-tests: tests
 	build/tests/laletests
-
-benchmarks:
-	ROOT="$$(pwd)" && \
-	mkdir -p build/benchmarks && \
-	cd build/benchmarks && \
-	qmake "$$ROOT/benchmarks/lalebenchmarks" && \
-	make -j
-
-run-benchmarks: benchmarks
-#build/benchmarks/lalebenchmarks -xml -o build/benchmark-reports/results.xml &&
-	mkdir -p build/benchmark-reports && \
-	cat build/benchmark-reports/results.xml | \
-		xsltproc benchmarks/lalebenchmarks/report-templates/lale-benchmark-to-datatables.xsl - | \
-		xsltproc benchmarks/lalebenchmarks/report-templates/datatables-with-graphs.xsl - > build/benchmark-reports/report.html && \
-	cp build/benchmark-reports/report.html .
 
 clean:
 	rm -R build/* && true

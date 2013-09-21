@@ -7,8 +7,8 @@ using namespace lale::core;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow),
-    currentQuestion("", "")
+    currentQuestion("", ""),
+    ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 }

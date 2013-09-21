@@ -16,9 +16,10 @@ ScoreRepository::~ScoreRepository()
 double ScoreRepository::getScoreFor(Question question)
 {
     QSqlQuery query(db);
-    query.prepare("SELECT score FROM score WHERE question = :question");
-    query.bindValue(":question", question.getQuestion());
+    query.prepare("SELECT score FROM score WHERE question = 'question'");
+    //query.bindValue(":question", question.getQuestion());
     if(!query.exec()) {
+        qDebug() << query.lastError().text();
         throw query.lastError();
     }
     if(!query.first()) {
@@ -30,7 +31,7 @@ double ScoreRepository::getScoreFor(Question question)
 void ScoreRepository::updateScoreFor(Question question, double score)
 {
     QSqlQuery query(db);
-    query.prepare("INSERT INTO score (question, score) VALUES (:question, :score)");
+    query.prepare("REPLACE INTO score (question, score) VALUES (:question, :score)");
     query.bindValue(":question", question.getQuestion());
     query.bindValue(":score", score);
     if(!query.exec()) {

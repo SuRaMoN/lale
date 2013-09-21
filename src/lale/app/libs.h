@@ -10,7 +10,6 @@
 #include <boost/random/mersenne_twister.hpp>
 #include <sys/time.h>
 #include <exception>
-#include <boost/graph/adjacency_list.hpp>
 #include <boost/optional.hpp>
 #include <QDebug>
 #include <QDir>
@@ -33,3 +32,5 @@
 #include <QVariant>
 #include <QxtCsvModel>
 #include <string>
+#include <map>
+#include <utility>
