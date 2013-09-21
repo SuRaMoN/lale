@@ -1,9 +1,10 @@
 #include "simplelearnertest.h"
 
+#include <math.h>
 #include "app/libs.h"
+#include "app/dbmigrator.h"
 #include "learningstrategies/simplelearner.h"
 #include "learningstrategies/questionsignalfetcher.h"
-#include "app/dbmigrator.h"
 
 using namespace laletests::learningstrategies;
 using namespace lale::core;
