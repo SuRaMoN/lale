@@ -66,6 +66,9 @@ void SimpleLearnerTest::testCorrectAnswersAreGivenLessFrequently()
         learner.rightAnswerGiven(questions[0]);
     }
 
+    QCOMPARE(scoreRepo->getScoreFor(questions[0]), 1 / pow(2, 5));
+    QCOMPARE(scoreRepo->getScoreFor(questions[1]), 1.);
+
     int question1GivenCount = 0;
     for(int i = 0; i < 1000; i += 1) {
         learner.provideNewQuestion();

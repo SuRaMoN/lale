@@ -16,8 +16,8 @@ ScoreRepository::~ScoreRepository()
 double ScoreRepository::getScoreFor(Question question)
 {
     QSqlQuery query(db);
-    query.prepare("SELECT score FROM score WHERE question = 'question'");
-    //query.bindValue(":question", question.getQuestion());
+    query.prepare("SELECT score FROM score WHERE question = :question");
+    query.bindValue(":question", question.getQuestion());
     if(!query.exec()) {
         qDebug() << query.lastError().text();
         throw query.lastError();

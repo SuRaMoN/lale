@@ -19,11 +19,6 @@ public:
     double getScoreFor(Question);
     void updateScoreFor(Question, double);
     void multiplyScoreWith(Question, double);
-    
-signals:
-    
-public slots:
-    
 };
 
 }}
