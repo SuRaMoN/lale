@@ -27,7 +27,8 @@ SOURCES += main.cpp \
     testhelpers/testcase.cpp \
     core/scorerepositorytest.cpp \
     core/roulettewheelselectortest.cpp \
-    learningstrategies/simplelearnertest.cpp
+    learningstrategies/simplelearnertest.cpp \
+    core/randomgeneratortest.cpp
 
 HEADERS  += \
     core/questionreadertest.h \
@@ -37,7 +38,8 @@ HEADERS  += \
     testhelpers/testcase.h \
     core/scorerepositorytest.h \
     core/roulettewheelselectortest.h \
-    learningstrategies/simplelearnertest.h
+    learningstrategies/simplelearnertest.h \
+    core/randomgeneratortest.h
 
 # logic sources/headers
 SOURCES += \

@@ -7,6 +7,7 @@
 #include "core/scorerepositorytest.h"
 #include "core/questionreadertest.h"
 #include "core/roulettewheelselectortest.h"
+#include "core/randomgeneratortest.h"
 #include "learningstrategies/naivelearnertest.h"
 #include "learningstrategies/simplelearnertest.h"
 
@@ -36,6 +37,9 @@ int main(int argc, char *argv[])
 
     QPointer<SimpleLearnerTest> simpleLearnerTest = new SimpleLearnerTest();
     result |= QTest::qExec(simpleLearnerTest, argc, argv);
+
+    QPointer<RandomGeneratorTest> randomGeneratorTest = new RandomGeneratorTest();
+    result |= QTest::qExec(randomGeneratorTest, argc, argv);
 
     if(result == 0) {
         cout << endl << "Tests ran successfully" << endl;

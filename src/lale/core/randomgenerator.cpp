@@ -13,7 +13,8 @@ RandomGenerator::RandomGenerator() :
 int RandomGenerator::getSeedInput()
 {
     timeval t;
-    return gettimeofday(&t, NULL);
+    gettimeofday(&t, NULL);
+    return t.tv_usec ^ t.tv_sec;
 }
 
 double RandomGenerator::getRandomDouble(double min, double max)
