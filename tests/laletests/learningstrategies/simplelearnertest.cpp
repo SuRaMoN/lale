@@ -77,7 +77,7 @@ void SimpleLearnerTest::testCorrectAnswersAreGivenLessFrequently()
         }
     }
 
-    double question1Score = 1 / pow(2, 5);
+    double question1Score = 1 / std::pow(2, 5);
     int expectedQuestion1Count = 1000 * question1Score / (1 + question1Score);
 
     QVERIFY(abs(question1GivenCount - expectedQuestion1Count) < 50);

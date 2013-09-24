@@ -1,6 +1,5 @@
 #include "byrepetitionlearnertest.h"
 
-#include <math.h>
 #include "app/libs.h"
 #include "app/dbmigrator.h"
 #include "learningstrategies/byrepetitionlearner.h"

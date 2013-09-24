@@ -5,12 +5,14 @@
 #endif // QT_GUI_LIB
 
 
-#include <iostream>
-#include <stdexcept>
-#include <boost/random/mersenne_twister.hpp>
-#include <sys/time.h>
-#include <exception>
 #include <boost/optional.hpp>
+#include <boost/random/mersenne_twister.hpp>
+#include <boost/shared_ptr.hpp>
+#include <cmath>
+#include <exception>
+#include <iostream>
+#include <limits>
+#include <map>
 #include <QDebug>
 #include <QDir>
 #include <QFile>
@@ -31,8 +33,8 @@
 #include <QTime>
 #include <QVariant>
 #include <QxtCsvModel>
+#include <stdexcept>
 #include <string>
-#include <map>
+#include <sys/time.h>
 #include <utility>
-#include <boost/shared_ptr.hpp>
-#include <limits>
+
