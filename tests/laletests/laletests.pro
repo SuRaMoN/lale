@@ -28,6 +28,7 @@ SOURCES += main.cpp \
     core/scorerepositorytest.cpp \
     core/roulettewheelselectortest.cpp \
     learningstrategies/simplelearnertest.cpp \
+    learningstrategies/byrepetitionlearnertest.cpp \
     core/randomgeneratortest.cpp
 
 HEADERS  += \
@@ -39,6 +40,7 @@ HEADERS  += \
     core/scorerepositorytest.h \
     core/roulettewheelselectortest.h \
     learningstrategies/simplelearnertest.h \
+    learningstrategies/byrepetitionlearnertest.h \
     core/randomgeneratortest.h
 
 # logic sources/headers
@@ -48,6 +50,7 @@ SOURCES += \
     learningstrategies/learner.cpp \
     learningstrategies/naivelearner.cpp \
     learningstrategies/simplelearner.cpp \
+    learningstrategies/byrepetitionlearner.cpp \
     app/dbmigrator.cpp \
     core/scorerepository.cpp \
     core/randomgenerator.cpp
@@ -58,6 +61,7 @@ HEADERS += app/libs.h \
     learningstrategies/learner.h \
     learningstrategies/naivelearner.h \
     learningstrategies/simplelearner.h \
+    learningstrategies/byrepetitionlearner.h \
     app/dbmigrator.h \
     core/scorerepository.h \
     core/roulettewheelselector.h \

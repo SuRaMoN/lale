@@ -10,6 +10,7 @@
 #include "core/randomgeneratortest.h"
 #include "learningstrategies/naivelearnertest.h"
 #include "learningstrategies/simplelearnertest.h"
+#include "learningstrategies/byrepetitionlearnertest.h"
 
 using namespace QTest;
 using namespace std;
@@ -40,6 +41,9 @@ int main(int argc, char *argv[])
 
     QPointer<RandomGeneratorTest> randomGeneratorTest = new RandomGeneratorTest();
     result |= QTest::qExec(randomGeneratorTest, argc, argv);
+
+    QPointer<ByRepetitionLearnerTest> byRepetitionLearnerTest = new ByRepetitionLearnerTest();
+    result |= QTest::qExec(byRepetitionLearnerTest, argc, argv);
 
     if(result == 0) {
         cout << endl << "Tests ran successfully" << endl;

@@ -5,6 +5,7 @@
 #include "core/questionreader.h"
 #include "learningstrategies/naivelearner.h"
 #include "learningstrategies/simplelearner.h"
+#include "learningstrategies/byrepetitionlearner.h"
 #include "dbmigrator.h"
 
 using namespace lale;
@@ -79,7 +80,10 @@ int Application::exec()
     readQuestionFile();
 
     QPointer<ScoreRepository> scoreRepo = new ScoreRepository(db);
-    QPointer<Learner> learner = new SimpleLearner(questions, scoreRepo);
+    RandomGenerator randomGenerator;
+    //QPointer<Learner> learner = new NaiveLearner(questions);
+    //QPointer<Learner> learner = new SimpleLearner(questions, scoreRepo);
+    QPointer<Learner> learner = new ByRepetitionLearner(questions, scoreRepo, randomGenerator);
 
     MainWindow mainWindow;
     connect(&mainWindow, SIGNAL(questionChangeRequest()), learner, SLOT(provideNewQuestion()));

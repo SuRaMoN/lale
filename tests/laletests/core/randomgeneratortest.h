@@ -15,6 +15,7 @@ public:
 
 private slots:
     void testGetRandomDouble();
+    void testGetRandomInt();
     void testSeed();
 };
 

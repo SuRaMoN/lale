@@ -22,7 +22,8 @@ SOURCES += main.cpp \
     core/scorerepository.cpp \
     app/dbmigrator.cpp \
     learningstrategies/simplelearner.cpp \
-    core/randomgenerator.cpp
+    core/randomgenerator.cpp \
+    learningstrategies/byrepetitionlearner.cpp
 
 HEADERS  += \
     app/application.h \
@@ -36,7 +37,8 @@ HEADERS  += \
     learningstrategies/simplelearner.h \
     app/libs.h \
     core/roulettewheelselector.h \
-    core/randomgenerator.h
+    core/randomgenerator.h \
+    learningstrategies/byrepetitionlearner.h
 
 FORMS += \
     gui/mainwindow.ui

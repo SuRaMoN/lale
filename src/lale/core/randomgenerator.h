@@ -8,7 +8,7 @@ namespace lale { namespace core {
 class RandomGenerator
 {
 protected:
-    boost::mt19937 seed;
+    boost::shared_ptr<boost::mt19937> seed;
     int getSeedInput();
 
 public:
@@ -16,6 +16,7 @@ public:
     virtual ~RandomGenerator();
 
     double getRandomDouble(double min = 0, double max = 1);
+    double getRandomInt(int min = std::numeric_limits<int>::min(), int max = std::numeric_limits<int>::max());
 };
 
 }}

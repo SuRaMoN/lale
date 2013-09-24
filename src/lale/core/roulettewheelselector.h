@@ -22,15 +22,21 @@ public:
     {
     }
 
+    double getTotalAreaSize()
+    {
+        double totalAreaSize = 0;
+        for(AreaMapIterator i = this->begin(); i != this->end(); ++i) {
+            totalAreaSize += i->second;
+        }
+        return totalAreaSize;
+    }
+
     AreaProperty pickRandom()
     {
         if(this->size() == 0) {
             throw std::logic_error("Can not pick a random are from an empty set.");
         }
-        double totalAreaSize = 0;
-        for(AreaMapIterator i = this->begin(); i != this->end(); ++i) {
-            totalAreaSize += i->second;
-        }
+        double totalAreaSize = getTotalAreaSize();
 
         double areaSumLimit = randomGenerator.getRandomDouble(0, totalAreaSize);
         double currentAreaSum = 0;

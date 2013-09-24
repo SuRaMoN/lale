@@ -1,8 +1,5 @@
 #include "simplelearner.h"
 
-#include "app/libs.h"
-#include "core/question.h"
-
 using namespace lale::learningstrategies;
 using namespace lale::core;
 
@@ -15,7 +12,6 @@ SimpleLearner::SimpleLearner(QList<Question> questions, QPointer<ScoreRepository
         randomPicker[question] = scoreRepo->getScoreFor(question);
     }
 }
-
 
 SimpleLearner::~SimpleLearner()
 {

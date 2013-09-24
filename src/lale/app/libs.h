@@ -34,3 +34,5 @@
 #include <string>
 #include <map>
 #include <utility>
+#include <boost/shared_ptr.hpp>
+#include <limits>

@@ -24,6 +24,18 @@ void RandomGeneratorTest::testGetRandomDouble()
     };
 }
 
+void RandomGeneratorTest::testGetRandomInt()
+{
+    RandomGenerator randomGenerator;
+    int frequenties[] = {0, 0};
+    for(int i = 0; i < 1000; i += 1) {
+        int randomNumber = randomGenerator.getRandomInt(0, 1);
+        frequenties[randomNumber] += 1;
+    };
+    QVERIFY(abs(frequenties[0] - 500) < 100);
+    QVERIFY(abs(frequenties[1] - 500) < 100);
+}
+
 void RandomGeneratorTest::testSeed()
 {
     double randomNumber1, randomNumber2;

@@ -1,12 +1,13 @@
 #include "randomgenerator.h"
 
 #include <boost/random/uniform_real.hpp>
+#include <boost/random/uniform_int.hpp>
 #include <boost/random/variate_generator.hpp>
 
 using namespace lale::core;
 
 RandomGenerator::RandomGenerator() :
-    seed(getSeedInput())
+    seed(new boost::mt19937(getSeedInput()))
 {
 }
 
@@ -19,8 +20,15 @@ int RandomGenerator::getSeedInput()
 
 double RandomGenerator::getRandomDouble(double min, double max)
 {
-    boost::uniform_real<> dist(min,max);
-    boost::variate_generator<boost::mt19937&, boost::uniform_real<double> > random(seed, dist);
+    boost::uniform_real<> dist(min, max);
+    boost::variate_generator<boost::mt19937&, boost::uniform_real<double> > random(*seed, dist);
+    return random();
+}
+
+double RandomGenerator::getRandomInt(int min, int max)
+{
+    boost::uniform_int<> dist(min, max);
+    boost::variate_generator<boost::mt19937&, boost::uniform_int<> > random(*seed, dist);
     return random();
 }
 
