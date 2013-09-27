@@ -16,10 +16,13 @@ protected:
     unsigned int repeatPoolMaxScoreSum;
     unsigned int numRightAnswersToRemoveFromRepeatPool;
 
+    lale::core::Question previousQuestion;
     QPointer<lale::core::ScoreRepository> scoreRepo;
     lale::core::RandomGenerator randomGenerator;
     lale::core::RouletteWheelSelector<lale::core::Question> randomQuestionPicker;
     lale::core::RouletteWheelSelector<lale::core::Question> repeatPoolRandomQuestionPicker;
+
+    lale::core::Question getNewQuestionCandidate();
 
 public:
     explicit ByRepetitionLearner(QList<core::Question>, QPointer<lale::core::ScoreRepository>, lale::core::RandomGenerator, QObject *parent = 0);

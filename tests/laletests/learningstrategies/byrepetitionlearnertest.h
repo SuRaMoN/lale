@@ -16,6 +16,7 @@ public:
 
 private slots:
     void testGivesUniformlyChoosenRandomQuestionsAtStart();
+    void testDontGiveTheSameQuestionTwoTimesInARow();
     void testWrongAnswersArePooled();
     void init();
     void cleanup();

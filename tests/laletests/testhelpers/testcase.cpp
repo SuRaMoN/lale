@@ -1,6 +1,6 @@
 #include "testcase.h"
 
-#include "app/libs.h"
+#include <QDir>
 #include "app/dbmigrator.h"
 
 using namespace laletests::testhelpers;

@@ -1,8 +1,8 @@
 #ifndef LALETESTS_TESTHELPERS_TESTCASE_H
 #define LALETESTS_TESTHELPERS_TESTCASE_H
 
-#include <QTest>
 #include "app/libs.h"
+#include <QTest>
 
 namespace laletests { namespace testhelpers {
 

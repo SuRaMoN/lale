@@ -1,6 +1,6 @@
 #include "dbmigrator.h"
 
-#include "app/libs.h"
+#include <QSqlQuery>
 
 using namespace lale::app;
 

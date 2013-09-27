@@ -1,6 +1,7 @@
 #include "scorerepository.h"
 
-#include "app/libs.h"
+#include <QSqlError>
+#include <QSqlQuery>
 
 using namespace lale::core;
 

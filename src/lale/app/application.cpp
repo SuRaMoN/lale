@@ -1,6 +1,8 @@
+
 #include "application.h"
 
-#include "app/libs.h"
+#include <QSettings>
+#include <QDir>
 #include "gui/mainwindow.h"
 #include "core/questionreader.h"
 #include "learningstrategies/naivelearner.h"
@@ -72,8 +74,6 @@ void Application::readQuestionFile()
 
 int Application::exec()
 {
-    qsrand(QTime::currentTime().msec());
-
     parseAllConfigs();
     initDb();
     performMigrations();

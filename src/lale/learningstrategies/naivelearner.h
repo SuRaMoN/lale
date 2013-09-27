@@ -2,6 +2,7 @@
 #define LALE_LEARNINGSTRATEGIES_NAIVELEARNER_H
 
 #include "app/libs.h"
+#include "core/randomgenerator.h"
 #include "learner.h"
 
 namespace lale { namespace learningstrategies {
@@ -9,6 +10,8 @@ namespace lale { namespace learningstrategies {
 class NaiveLearner : public Learner
 {
     Q_OBJECT
+protected:
+    lale::core::RandomGenerator randomGenerator;
 
 public:
     explicit NaiveLearner(QList<core::Question>, QObject *parent = 0);

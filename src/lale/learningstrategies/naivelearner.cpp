@@ -13,7 +13,7 @@ NaiveLearner::~NaiveLearner()
 
 void NaiveLearner::provideNewQuestion()
 {
-    Question question = questions[qrand() % questions.length()];
+    Question question = questions[randomGenerator.getRandomInt(0, questions.length() - 1)];
     emit newQuestion(question);
 }
 

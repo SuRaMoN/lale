@@ -1,7 +1,8 @@
 #include "simplelearnertest.h"
 
-#include <math.h>
-#include "app/libs.h"
+#include <cmath>
+#include <QSqlQuery>
+#include <QDir>
 #include "app/dbmigrator.h"
 #include "learningstrategies/simplelearner.h"
 #include "learningstrategies/questionsignalfetcher.h"
@@ -66,7 +67,7 @@ void SimpleLearnerTest::testCorrectAnswersAreGivenLessFrequently()
         learner.rightAnswerGiven(questions[0]);
     }
 
-    QCOMPARE(scoreRepo->getScoreFor(questions[0]), 1 / pow(2, 5));
+    QCOMPARE(scoreRepo->getScoreFor(questions[0]), 1 / std::pow(2, 5));
     QCOMPARE(scoreRepo->getScoreFor(questions[1]), 1.);
 
     int question1GivenCount = 0;

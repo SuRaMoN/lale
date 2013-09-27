@@ -1,6 +1,7 @@
 #include "dbmigratortest.h"
 
-#include "app/libs.h"
+#include <QDir>
+#include <QSqlQuery>
 #include "app/dbmigrator.h"
 
 using namespace laletests::core;

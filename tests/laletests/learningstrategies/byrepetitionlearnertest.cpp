@@ -1,6 +1,6 @@
 #include "byrepetitionlearnertest.h"
 
-#include "app/libs.h"
+#include <QDir>
 #include "app/dbmigrator.h"
 #include "learningstrategies/byrepetitionlearner.h"
 #include "learningstrategies/questionsignalfetcher.h"
@@ -36,6 +36,7 @@ void ByRepetitionLearnerTest::testGivesUniformlyChoosenRandomQuestionsAtStart()
 {
     QList<Question> questions;
     questions << Question("question1", "answer1") << Question("question2", "answer2");
+    questions << Question("question3", "answer3") << Question("question4", "answer4");
 
     QPointer<ScoreRepository> scoreRepo(new ScoreRepository(QSqlDatabase::database("SimpleLearnerTest")));
     ByRepetitionLearner learner(questions, scoreRepo, RandomGenerator());
@@ -49,7 +50,28 @@ void ByRepetitionLearnerTest::testGivesUniformlyChoosenRandomQuestionsAtStart()
         }
     }
 
-    QVERIFY(abs(question1GivenCount - 500) < 50);
+    QVERIFY(abs(question1GivenCount - 1000 / 4) < 50);
+}
+
+void ByRepetitionLearnerTest::testDontGiveTheSameQuestionTwoTimesInARow()
+{
+    QList<Question> questions;
+    questions << Question("question1", "answer1") << Question("question2", "answer2");
+    questions << Question("question3", "answer3") << Question("question4", "answer4");
+
+    QPointer<ScoreRepository> scoreRepo(new ScoreRepository(QSqlDatabase::database("SimpleLearnerTest")));
+    ByRepetitionLearner learner(questions, scoreRepo, RandomGenerator());
+    QuestionSignalFetcher sentQuestions(&learner, SIGNAL(newQuestion(lale::core::Question)));
+
+    Question previousQuestion("", "");
+    for(int i = 0; i < 1000; i += 1) {
+        learner.provideNewQuestion();
+        if(previousQuestion == sentQuestions.getQuestions().last()) {
+            QFAIL("Same question is given twice in a row");
+        }
+        previousQuestion = sentQuestions.getQuestions().last();
+    }
+
 }
 
 void ByRepetitionLearnerTest::testWrongAnswersArePooled()
