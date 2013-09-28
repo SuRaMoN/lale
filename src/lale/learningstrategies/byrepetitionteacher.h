@@ -1,14 +1,14 @@
-#ifndef LALE_LEARNINGSTRATEGIES_BYREPETITIONLEARNER_H
-#define LALE_LEARNINGSTRATEGIES_BYREPETITIONLEARNER_H
+#ifndef LALE_LEARNINGSTRATEGIES_BYREPETITIONTEACHER_H
+#define LALE_LEARNINGSTRATEGIES_BYREPETITIONTEACHER_H
 
 #include "app/libs.h"
-#include "learner.h"
+#include "teacher.h"
 #include "core/scorerepository.h"
 #include "core/roulettewheelselector.h"
 
 namespace lale { namespace learningstrategies {
 
-class ByRepetitionLearner : public Learner
+class ByRepetitionTeacher : public Teacher
 {
     Q_OBJECT
 
@@ -25,8 +25,8 @@ protected:
     lale::core::Question getNewQuestionCandidate();
 
 public:
-    explicit ByRepetitionLearner(QList<core::Question>, QPointer<lale::core::ScoreRepository>, lale::core::RandomGenerator, QObject *parent = 0);
-    virtual ~ByRepetitionLearner();
+    explicit ByRepetitionTeacher(QList<core::Question>, QPointer<lale::core::ScoreRepository>, lale::core::RandomGenerator, QObject *parent = 0);
+    virtual ~ByRepetitionTeacher();
 
     unsigned int getRepeatPoolMaxScoreSum() const;
     void setRepeatPoolMaxScoreSum(unsigned int value);
@@ -42,4 +42,4 @@ public slots:
 
 }}
 
-#endif // LALE_LEARNINGSTRATEGIES_BYREPETITIONLEARNER_H
+#endif // LALE_LEARNINGSTRATEGIES_BYREPETITIONTEACHER_H

@@ -8,9 +8,9 @@
 #include "core/questionreadertest.h"
 #include "core/roulettewheelselectortest.h"
 #include "core/randomgeneratortest.h"
-#include "learningstrategies/naivelearnertest.h"
-#include "learningstrategies/simplelearnertest.h"
-#include "learningstrategies/byrepetitionlearnertest.h"
+#include "learningstrategies/naiveteachertest.h"
+#include "learningstrategies/simpleteachertest.h"
+#include "learningstrategies/byrepetitionteachertest.h"
 
 using namespace QTest;
 using namespace std;
@@ -24,8 +24,8 @@ int main(int argc, char *argv[])
     QPointer<QuestionReaderTest> questionReaderTest = new QuestionReaderTest();
     result |= QTest::qExec(questionReaderTest, argc, argv);
 
-    QPointer<NaiveLearnerTest> naiveLearnerTest = new NaiveLearnerTest();
-    result |= QTest::qExec(naiveLearnerTest, argc, argv);
+    QPointer<NaiveTeacherTest> naiveTeacherTest = new NaiveTeacherTest();
+    result |= QTest::qExec(naiveTeacherTest, argc, argv);
 
     QPointer<DbMigratorTest> dbMigratorTest = new DbMigratorTest();
     result |= QTest::qExec(dbMigratorTest, argc, argv);
@@ -36,14 +36,14 @@ int main(int argc, char *argv[])
     QPointer<RouletteWheelSelectorTest> rouletteWheelSelectorTest = new RouletteWheelSelectorTest();
     result |= QTest::qExec(rouletteWheelSelectorTest, argc, argv);
 
-    QPointer<SimpleLearnerTest> simpleLearnerTest = new SimpleLearnerTest();
-    result |= QTest::qExec(simpleLearnerTest, argc, argv);
+    QPointer<SimpleTeacherTest> simpleTeacherTest = new SimpleTeacherTest();
+    result |= QTest::qExec(simpleTeacherTest, argc, argv);
 
     QPointer<RandomGeneratorTest> randomGeneratorTest = new RandomGeneratorTest();
     result |= QTest::qExec(randomGeneratorTest, argc, argv);
 
-    QPointer<ByRepetitionLearnerTest> byRepetitionLearnerTest = new ByRepetitionLearnerTest();
-    result |= QTest::qExec(byRepetitionLearnerTest, argc, argv);
+    QPointer<ByRepetitionTeacherTest> byRepetitionTeacherTest = new ByRepetitionTeacherTest();
+    result |= QTest::qExec(byRepetitionTeacherTest, argc, argv);
 
     if(result == 0) {
         cout << endl << "Tests ran successfully" << endl;

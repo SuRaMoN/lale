@@ -1,14 +1,14 @@
-#ifndef LALE_LEARNINGSTRATEGIES_SIMPLELEARNER_H
-#define LALE_LEARNINGSTRATEGIES_SIMPLELEARNER_H
+#ifndef LALE_LEARNINGSTRATEGIES_SIMPLETEACHER_H
+#define LALE_LEARNINGSTRATEGIES_SIMPLETEACHER_H
 
 #include "app/libs.h"
-#include "learner.h"
+#include "teacher.h"
 #include "core/scorerepository.h"
 #include "core/roulettewheelselector.h"
 
 namespace lale { namespace learningstrategies {
 
-class SimpleLearner : public Learner
+class SimpleTeacher : public Teacher
 {
     Q_OBJECT
 
@@ -16,8 +16,8 @@ class SimpleLearner : public Learner
     lale::core::RouletteWheelSelector<lale::core::Question> randomPicker;
 
 public:
-    explicit SimpleLearner(QList<core::Question>, QPointer<lale::core::ScoreRepository>, QObject *parent = 0);
-    virtual ~SimpleLearner();
+    explicit SimpleTeacher(QList<core::Question>, QPointer<lale::core::ScoreRepository>, QObject *parent = 0);
+    virtual ~SimpleTeacher();
 
 public slots:
     void provideNewQuestion();
@@ -27,4 +27,4 @@ public slots:
 
 }}
 
-#endif // LALE_LEARNINGSTRATEGIES_SIMPLELEARNER_H
+#endif // LALE_LEARNINGSTRATEGIES_SIMPLETEACHER_H

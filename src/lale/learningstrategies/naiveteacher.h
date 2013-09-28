@@ -1,21 +1,21 @@
-#ifndef LALE_LEARNINGSTRATEGIES_NAIVELEARNER_H
-#define LALE_LEARNINGSTRATEGIES_NAIVELEARNER_H
+#ifndef LALE_LEARNINGSTRATEGIES_NAIVETEACHER_H
+#define LALE_LEARNINGSTRATEGIES_NAIVETEACHER_H
 
 #include "app/libs.h"
 #include "core/randomgenerator.h"
-#include "learner.h"
+#include "teacher.h"
 
 namespace lale { namespace learningstrategies {
 
-class NaiveLearner : public Learner
+class NaiveTeacher : public Teacher
 {
     Q_OBJECT
 protected:
     lale::core::RandomGenerator randomGenerator;
 
 public:
-    explicit NaiveLearner(QList<core::Question>, QObject *parent = 0);
-    virtual ~NaiveLearner();
+    explicit NaiveTeacher(QList<core::Question>, QObject *parent = 0);
+    virtual ~NaiveTeacher();
     
 signals:
     void newQuestion(lale::core::Question);
@@ -28,4 +28,4 @@ public slots:
 
 }}
 
-#endif // LALE_LEARNINGSTRATEGIES_NAIVELEARNER_H
+#endif // LALE_LEARNINGSTRATEGIES_NAIVETEACHER_H

@@ -1,11 +1,11 @@
-#include "byrepetitionlearner.h"
+#include "byrepetitionteacher.h"
 
 using namespace lale::learningstrategies;
 using namespace lale::core;
 
-ByRepetitionLearner::ByRepetitionLearner(QList<Question> questions, QPointer<ScoreRepository> scoreRepo, RandomGenerator aRandomGenerator, QObject *parent) :
+ByRepetitionTeacher::ByRepetitionTeacher(QList<Question> questions, QPointer<ScoreRepository> scoreRepo, RandomGenerator aRandomGenerator, QObject *parent) :
+    Teacher(questions, parent),
     previousQuestion("", ""),
-    Learner(questions, parent),
     randomGenerator(aRandomGenerator),
     randomQuestionPicker(aRandomGenerator),
     repeatPoolRandomQuestionPicker(aRandomGenerator)
@@ -19,11 +19,11 @@ ByRepetitionLearner::ByRepetitionLearner(QList<Question> questions, QPointer<Sco
     }
 }
 
-ByRepetitionLearner::~ByRepetitionLearner()
+ByRepetitionTeacher::~ByRepetitionTeacher()
 {
 }
 
-void ByRepetitionLearner::provideNewQuestion()
+void ByRepetitionTeacher::provideNewQuestion()
 {
     Question newQuestionCandidate = getNewQuestionCandidate();
     for(int i = 0; i < 100 && newQuestionCandidate == previousQuestion; ++i) {
@@ -33,7 +33,7 @@ void ByRepetitionLearner::provideNewQuestion()
     emit newQuestion(newQuestionCandidate);
 }
 
-Question ByRepetitionLearner::getNewQuestionCandidate()
+Question ByRepetitionTeacher::getNewQuestionCandidate()
 {
     if(repeatPoolRandomQuestionPicker.getTotalAreaSize() >= repeatPoolMaxScoreSum) {
         return repeatPoolRandomQuestionPicker.pickRandom();
@@ -51,13 +51,13 @@ Question ByRepetitionLearner::getNewQuestionCandidate()
     }
 }
 
-void ByRepetitionLearner::wrongAnswerGiven(Question question)
+void ByRepetitionTeacher::wrongAnswerGiven(Question question)
 {
     repeatPoolRandomQuestionPicker[question] = 1;
     scoreRepo->updateScoreFor(question, 1);
 }
 
-void ByRepetitionLearner::rightAnswerGiven(Question question)
+void ByRepetitionTeacher::rightAnswerGiven(Question question)
 {
     if(repeatPoolRandomQuestionPicker.count(question) == 1) {
         repeatPoolRandomQuestionPicker[question] /= 2;
@@ -71,22 +71,22 @@ void ByRepetitionLearner::rightAnswerGiven(Question question)
     }
 }
 
-unsigned int ByRepetitionLearner::getNumRightAnswersToRemoveFromRepeatPool() const
+unsigned int ByRepetitionTeacher::getNumRightAnswersToRemoveFromRepeatPool() const
 {
     return numRightAnswersToRemoveFromRepeatPool;
 }
 
-void ByRepetitionLearner::setNumRightAnswersToRemoveFromRepeatPool(unsigned int value)
+void ByRepetitionTeacher::setNumRightAnswersToRemoveFromRepeatPool(unsigned int value)
 {
     numRightAnswersToRemoveFromRepeatPool = value;
 }
 
-unsigned int ByRepetitionLearner::getRepeatPoolMaxScoreSum() const
+unsigned int ByRepetitionTeacher::getRepeatPoolMaxScoreSum() const
 {
     return repeatPoolMaxScoreSum;
 }
 
-void ByRepetitionLearner::setRepeatPoolMaxScoreSum(unsigned int value)
+void ByRepetitionTeacher::setRepeatPoolMaxScoreSum(unsigned int value)
 {
     repeatPoolMaxScoreSum = value;
 }

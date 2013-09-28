@@ -2,6 +2,7 @@
 #ifdef QT_GUI_LIB
 #include <QApplication>
 #include <QMainWindow>
+#include <QDialog>
 #endif // QT_GUI_LIB
 
 

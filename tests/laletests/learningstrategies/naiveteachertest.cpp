@@ -1,31 +1,31 @@
-#include "naivelearnertest.h"
+#include "naiveteachertest.h"
 
 #include "app/libs.h"
-#include "learningstrategies/naivelearner.h"
+#include "learningstrategies/naiveteacher.h"
 #include "learningstrategies/questionsignalfetcher.h"
 
 using namespace laletests::learningstrategies;
 using namespace lale::core;
 using namespace lale::learningstrategies;
 
-NaiveLearnerTest::NaiveLearnerTest(QObject *parent) : TestCase(parent)
+NaiveTeacherTest::NaiveTeacherTest(QObject *parent) : TestCase(parent)
 {
 }
 
-NaiveLearnerTest::~NaiveLearnerTest()
+NaiveTeacherTest::~NaiveTeacherTest()
 {
 }
 
-void NaiveLearnerTest::testGivesRandomQuestions()
+void NaiveTeacherTest::testGivesRandomQuestions()
 {
     QList<Question> questions;
     questions << Question("question1", "answer1") << Question("question2", "answer2");
 
-    NaiveLearner learner(questions);
-    QuestionSignalFetcher sentQuestions(&learner, SIGNAL(newQuestion(lale::core::Question)));
+    NaiveTeacher teacher(questions);
+    QuestionSignalFetcher sentQuestions(&teacher, SIGNAL(newQuestion(lale::core::Question)));
 
     for(int i = 0; i < 50; i += 1) {
-        learner.provideNewQuestion();
+        teacher.provideNewQuestion();
     }
 
     bool question1Provided = false, question2Provided = false;

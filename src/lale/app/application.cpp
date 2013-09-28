@@ -5,9 +5,11 @@
 #include <QDir>
 #include "gui/mainwindow.h"
 #include "core/questionreader.h"
-#include "learningstrategies/naivelearner.h"
-#include "learningstrategies/simplelearner.h"
-#include "learningstrategies/byrepetitionlearner.h"
+#include "core/statisticscalculator.h"
+#include "learningstrategies/naiveteacher.h"
+#include "learningstrategies/simpleteacher.h"
+#include "learningstrategies/byrepetitionteacher.h"
+#include "gui/statisticswindow.h"
 #include "dbmigrator.h"
 
 using namespace lale;
@@ -81,19 +83,26 @@ int Application::exec()
 
     QPointer<ScoreRepository> scoreRepo = new ScoreRepository(db);
     RandomGenerator randomGenerator;
-    //QPointer<Learner> learner = new NaiveLearner(questions);
-    //QPointer<Learner> learner = new SimpleLearner(questions, scoreRepo);
-    QPointer<Learner> learner = new ByRepetitionLearner(questions, scoreRepo, randomGenerator);
+    //QPointer<Teacher> teacher = new NaiveTeacher(questions);
+    //QPointer<Teacher> teacher = new SimpleTeacher(questions, scoreRepo);
+    QPointer<Teacher> teacher = new ByRepetitionTeacher(questions, scoreRepo, randomGenerator);
+    StatisticsCalculator statisticsCalculator(scoreRepo, questions);
 
     MainWindow mainWindow;
-    connect(&mainWindow, SIGNAL(questionChangeRequest()), learner, SLOT(provideNewQuestion()));
-    connect(&mainWindow, SIGNAL(wrongAnswerGiven(lale::core::Question)), learner, SLOT(wrongAnswerGiven(lale::core::Question)));
-    connect(&mainWindow, SIGNAL(rightAnswerGiven(lale::core::Question)), learner, SLOT(rightAnswerGiven(lale::core::Question)));
-    connect(learner, SIGNAL(newQuestion(lale::core::Question)), &mainWindow, SLOT(changeQuestion(lale::core::Question)));
+    connect(&mainWindow, SIGNAL(questionChangeRequest()), teacher, SLOT(provideNewQuestion()));
+    connect(&mainWindow, SIGNAL(wrongAnswerGiven(lale::core::Question)), teacher, SLOT(wrongAnswerGiven(lale::core::Question)));
+    connect(&mainWindow, SIGNAL(rightAnswerGiven(lale::core::Question)), teacher, SLOT(rightAnswerGiven(lale::core::Question)));
+    connect(teacher, SIGNAL(newQuestion(lale::core::Question)), &mainWindow, SLOT(changeQuestion(lale::core::Question)));
 
-    learner->provideNewQuestion();
+    teacher->provideNewQuestion();
+
+    StatisticsWindow statisticsWindow;
+    connect(&mainWindow, SIGNAL(questionChangeRequest()), &statisticsCalculator, SLOT(dataChanged()));
+    connect(&statisticsCalculator, SIGNAL(statisticsChanged(lale::core::Statistics)), &statisticsWindow, SLOT(statisticsChanged(lale::core::Statistics)));
 
     mainWindow.show();
+    statisticsWindow.show();
+    statisticsCalculator.dataChanged();
     return QApplication::exec();
 }
 

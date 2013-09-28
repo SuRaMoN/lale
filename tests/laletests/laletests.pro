@@ -21,36 +21,36 @@ RESOURCES = testdata.qrc dbmigrations.qrc
 # test sources/headers
 SOURCES += main.cpp \
     core/questionreadertest.cpp \
-    learningstrategies/naivelearnertest.cpp \
     learningstrategies/questionsignalfetcher.cpp \
     app/dbmigratortest.cpp \
     testhelpers/testcase.cpp \
     core/scorerepositorytest.cpp \
     core/roulettewheelselectortest.cpp \
-    learningstrategies/simplelearnertest.cpp \
-    learningstrategies/byrepetitionlearnertest.cpp \
-    core/randomgeneratortest.cpp
+    core/randomgeneratortest.cpp \
+    learningstrategies/byrepetitionteachertest.cpp \
+    learningstrategies/naiveteachertest.cpp \
+    learningstrategies/simpleteachertest.cpp
 
 HEADERS  += \
     core/questionreadertest.h \
-    learningstrategies/naivelearnertest.h \
     learningstrategies/questionsignalfetcher.h \
     app/dbmigratortest.h \
     testhelpers/testcase.h \
     core/scorerepositorytest.h \
     core/roulettewheelselectortest.h \
-    learningstrategies/simplelearnertest.h \
-    learningstrategies/byrepetitionlearnertest.h \
-    core/randomgeneratortest.h
+    core/randomgeneratortest.h \
+    learningstrategies/naiveteachertest.h \
+    learningstrategies/byrepetitionteachertest.h \
+    learningstrategies/simpleteachertest.h
 
 # logic sources/headers
 SOURCES += \
     core/questionreader.cpp \
     core/question.cpp \
-    learningstrategies/learner.cpp \
-    learningstrategies/naivelearner.cpp \
-    learningstrategies/simplelearner.cpp \
-    learningstrategies/byrepetitionlearner.cpp \
+    learningstrategies/teacher.cpp \
+    learningstrategies/naiveteacher.cpp \
+    learningstrategies/simpleteacher.cpp \
+    learningstrategies/byrepetitionteacher.cpp \
     app/dbmigrator.cpp \
     core/scorerepository.cpp \
     core/randomgenerator.cpp
@@ -58,10 +58,10 @@ SOURCES += \
 HEADERS += app/libs.h \
     core/questionreader.h \
     core/question.h \
-    learningstrategies/learner.h \
-    learningstrategies/naivelearner.h \
-    learningstrategies/simplelearner.h \
-    learningstrategies/byrepetitionlearner.h \
+    learningstrategies/teacher.h \
+    learningstrategies/naiveteacher.h \
+    learningstrategies/simpleteacher.h \
+    learningstrategies/byrepetitionteacher.h \
     app/dbmigrator.h \
     core/scorerepository.h \
     core/roulettewheelselector.h \

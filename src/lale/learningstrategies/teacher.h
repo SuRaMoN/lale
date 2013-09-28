@@ -1,12 +1,12 @@
-#ifndef LALE_LEARNINGSTRATEGIES_LEARNER_H
-#define LALE_LEARNINGSTRATEGIES_LEARNER_H
+#ifndef LALE_LEARNINGSTRATEGIES_TEACHER_H
+#define LALE_LEARNINGSTRATEGIES_TEACHER_H
 
 #include "app/libs.h"
 #include "core/question.h"
 
 namespace lale { namespace learningstrategies {
 
-class Learner : public QObject
+class Teacher : public QObject
 {
     Q_OBJECT
 
@@ -14,8 +14,8 @@ protected:
     QList<core::Question> questions;
 
 public:
-    explicit Learner(QList<core::Question>, QObject *parent = 0);
-    virtual ~Learner();
+    explicit Teacher(QList<core::Question>, QObject *parent = 0);
+    virtual ~Teacher();
     
 signals:
     void newQuestion(lale::core::Question);
@@ -28,4 +28,4 @@ public slots:
 
 }}
 
-#endif // LALE_LEARNINGSTRATEGIES_LEARNER_H
+#endif // LALE_LEARNINGSTRATEGIES_TEACHER_H
