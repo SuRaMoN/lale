@@ -18,6 +18,8 @@ StatisticsWindow::~StatisticsWindow()
 void StatisticsWindow::statisticsChanged(lale::core::Statistics statistics)
 {
     QString statisticsString;
-    statisticsString += "Percentage not yet learned: " + QString::number(statistics.percentageNotYetLearned * 100);
+    statisticsString += "Percentage not yet learned: " + QString::number(statistics.percentageNotYetLearned * 100) + "\n";
+    statisticsString += "Total number of questions: " + QString::number(statistics.questionCount) + "\n";
+    statisticsString += "Number of questions not yet learned: " + QString::number(statistics.questionsNotYetLearnedCount) + "\n";
     ui->statisticsLabel->setText(statisticsString);
 }

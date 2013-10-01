@@ -14,14 +14,18 @@ class StatisticsCalculator : public QObject
 protected:
     QPointer<lale::core::ScoreRepository> scoreRepository;
     QList<lale::core::Question> questions;
+    lale::core::Statistics stats;
+
+    void recalculateStatistics();
 
 public:
     explicit StatisticsCalculator(QPointer<lale::core::ScoreRepository>, QList<lale::core::Question>, QObject *parent = 0);
     double calculatePercentageNotYetLearned();
-    lale::core::Statistics calculateStatistics();
+    void triggerStatisticsChanged();
+    lale::core::Statistics getStatistics();
 
 public slots:
-    void dataChanged();
+    void scoreUpdatedForQuestion(lale::core::Question, double, double);
 
 signals:
     void statisticsChanged(lale::core::Statistics);

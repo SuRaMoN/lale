@@ -8,6 +8,7 @@
 #include "core/questionreadertest.h"
 #include "core/roulettewheelselectortest.h"
 #include "core/randomgeneratortest.h"
+#include "core/statisticscalculatortest.h"
 #include "learningstrategies/naiveteachertest.h"
 #include "learningstrategies/simpleteachertest.h"
 #include "learningstrategies/byrepetitionteachertest.h"
@@ -44,6 +45,9 @@ int main(int argc, char *argv[])
 
     QPointer<ByRepetitionTeacherTest> byRepetitionTeacherTest = new ByRepetitionTeacherTest();
     result |= QTest::qExec(byRepetitionTeacherTest, argc, argv);
+
+    QPointer<StatisticsCalculatorTest> statisticsCalculatorTest = new StatisticsCalculatorTest();
+    result |= QTest::qExec(statisticsCalculatorTest, argc, argv);
 
     if(result == 0) {
         cout << endl << "Tests ran successfully" << endl;

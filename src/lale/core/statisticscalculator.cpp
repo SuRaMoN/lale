@@ -7,31 +7,46 @@ StatisticsCalculator::StatisticsCalculator(QPointer<ScoreRepository> aScoreRepos
     scoreRepository(aScoreRepository),
     questions(aQuestions)
 {
+    recalculateStatistics();
 }
 
-double StatisticsCalculator::calculatePercentageNotYetLearned()
+
+void StatisticsCalculator::recalculateStatistics()
 {
-    int notYetLearnedCount = 0;
+    stats.questionsNotYetLearnedCount = 0;
     foreach(const Question & question, questions) {
-        if(scoreRepository->getScoreFor(question) == 1) {
-            notYetLearnedCount += 1;
+        double score = scoreRepository->getScoreFor(question);
+        if(1 == score) {
+            stats.questionsNotYetLearnedCount += 1;
         }
     }
-    return (double) notYetLearnedCount / (double) questions.count();
+    stats.questionCount = questions.count();
+    stats.percentageNotYetLearned = (double) stats.questionsNotYetLearnedCount / (double) stats.questionCount;
+
+    emit statisticsChanged(stats);
 }
 
 
-void StatisticsCalculator::dataChanged()
+void StatisticsCalculator::scoreUpdatedForQuestion(Question, double oldValue, double newValue)
 {
-    emit statisticsChanged(calculateStatistics());
+    if(1 == oldValue) {
+        stats.questionsNotYetLearnedCount -= 1;
+    }
+    if(1 == newValue) {
+        stats.questionsNotYetLearnedCount += 1;
+    }
+
+    stats.percentageNotYetLearned = (double) stats.questionsNotYetLearnedCount / (double) stats.questionCount;
+    emit statisticsChanged(stats);
 }
 
 
-Statistics StatisticsCalculator::calculateStatistics()
+void StatisticsCalculator::triggerStatisticsChanged()
 {
-    Statistics statistics;
+    emit statisticsChanged(stats);
+}
 
-    statistics.percentageNotYetLearned = calculatePercentageNotYetLearned();
-
-    return statistics;
+Statistics StatisticsCalculator::getStatistics()
+{
+    return stats;
 }

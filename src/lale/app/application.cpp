@@ -97,12 +97,12 @@ int Application::exec()
     teacher->provideNewQuestion();
 
     StatisticsWindow statisticsWindow;
-    connect(&mainWindow, SIGNAL(questionChangeRequest()), &statisticsCalculator, SLOT(dataChanged()));
+    connect(scoreRepo, SIGNAL(scoreUpdatedForQuestion(lale::core::Question, double, double)), &statisticsCalculator, SLOT(scoreUpdatedForQuestion(lale::core::Question, double, double)));
     connect(&statisticsCalculator, SIGNAL(statisticsChanged(lale::core::Statistics)), &statisticsWindow, SLOT(statisticsChanged(lale::core::Statistics)));
 
     mainWindow.show();
     statisticsWindow.show();
-    statisticsCalculator.dataChanged();
+    statisticsCalculator.triggerStatisticsChanged();
     return QApplication::exec();
 }
 

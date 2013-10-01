@@ -19,6 +19,9 @@ public:
     double getScoreFor(Question);
     void updateScoreFor(Question, double);
     void multiplyScoreWith(Question, double);
+
+signals:
+    void scoreUpdatedForQuestion(lale::core::Question, double, double);
 };
 
 }}

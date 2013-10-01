@@ -20,49 +20,54 @@ RESOURCES = testdata.qrc dbmigrations.qrc
 
 # test sources/headers
 SOURCES += main.cpp \
-    core/questionreadertest.cpp \
-    learningstrategies/questionsignalfetcher.cpp \
     app/dbmigratortest.cpp \
-    testhelpers/testcase.cpp \
-    core/scorerepositorytest.cpp \
-    core/roulettewheelselectortest.cpp \
+    core/questionreadertest.cpp \
     core/randomgeneratortest.cpp \
+    core/roulettewheelselectortest.cpp \
+    core/scorerepositorytest.cpp \
+    core/statisticscalculatortest.cpp \
     learningstrategies/byrepetitionteachertest.cpp \
     learningstrategies/naiveteachertest.cpp \
-    learningstrategies/simpleteachertest.cpp
+    learningstrategies/questionsignalfetcher.cpp \
+    learningstrategies/simpleteachertest.cpp \
+    testhelpers/testcase.cpp
 
 HEADERS  += \
-    core/questionreadertest.h \
-    learningstrategies/questionsignalfetcher.h \
     app/dbmigratortest.h \
-    testhelpers/testcase.h \
-    core/scorerepositorytest.h \
-    core/roulettewheelselectortest.h \
+    core/questionreadertest.h \
     core/randomgeneratortest.h \
-    learningstrategies/naiveteachertest.h \
+    core/roulettewheelselectortest.h \
+    core/scorerepositorytest.h \
+    core/statisticscalculatortest.h \
     learningstrategies/byrepetitionteachertest.h \
-    learningstrategies/simpleteachertest.h
+    learningstrategies/naiveteachertest.h \
+    learningstrategies/questionsignalfetcher.h \
+    learningstrategies/simpleteachertest.h \
+    testhelpers/testcase.h
 
 # logic sources/headers
 SOURCES += \
-    core/questionreader.cpp \
+    app/dbmigrator.cpp \
     core/question.cpp \
-    learningstrategies/teacher.cpp \
+    core/questionreader.cpp \
+    core/randomgenerator.cpp \
+    core/scorerepository.cpp \
+    core/statisticscalculator.cpp \
+    learningstrategies/byrepetitionteacher.cpp \
     learningstrategies/naiveteacher.cpp \
     learningstrategies/simpleteacher.cpp \
-    learningstrategies/byrepetitionteacher.cpp \
-    app/dbmigrator.cpp \
-    core/scorerepository.cpp \
-    core/randomgenerator.cpp
+    learningstrategies/teacher.cpp
 
 HEADERS += app/libs.h \
-    core/questionreader.h \
+    app/dbmigrator.h \
     core/question.h \
-    learningstrategies/teacher.h \
+    core/questionreader.h \
+    core/randomgenerator.h \
+    core/roulettewheelselector.h \
+    core/scorerepository.h \
+    core/statisticscalculator.h \
+    learningstrategies/byrepetitionteacher.h \
     learningstrategies/naiveteacher.h \
     learningstrategies/simpleteacher.h \
-    learningstrategies/byrepetitionteacher.h \
-    app/dbmigrator.h \
-    core/scorerepository.h \
-    core/roulettewheelselector.h \
-    core/randomgenerator.h
+    learningstrategies/teacher.h
+

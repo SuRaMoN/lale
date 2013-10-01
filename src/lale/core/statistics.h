@@ -7,6 +7,8 @@ class Statistics
 {
 public:
     double percentageNotYetLearned;
+    int questionsNotYetLearnedCount;
+    int questionCount;
 };
 
 }}
