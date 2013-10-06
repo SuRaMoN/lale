@@ -20,24 +20,19 @@ void NaiveTeacherTest::testGivesRandomQuestions()
 {
     QList<Question> questions;
     questions << Question("question1", "answer1") << Question("question2", "answer2");
+    questions << Question("question3", "answer3") << Question("question4", "answer4");
+    questions << Question("question5", "answer5") << Question("question6", "answer6");
 
     NaiveTeacher teacher(questions);
     QuestionSignalFetcher sentQuestions(&teacher, SIGNAL(newQuestion(lale::core::Question)));
 
-    for(int i = 0; i < 50; i += 1) {
+    int question1GivenCount = 0;
+    for(int i = 0; i < 1000; i += 1) {
         teacher.provideNewQuestion();
-    }
-
-    bool question1Provided = false, question2Provided = false;
-    foreach(Question question, sentQuestions.getQuestions()) {
-        if(question.getQuestion() == "question1") {
-            question1Provided = true;
-        } else if(question.getQuestion() == "question2") {
-            question2Provided = true;
-        } else {
-            QVERIFY(false);
+        if(sentQuestions.getQuestions().last().getQuestion() == "question1") {
+            question1GivenCount += 1;
         }
     }
-    QCOMPARE(question1Provided, true);
-    QCOMPARE(question2Provided, true);
+
+    QVERIFY(abs(question1GivenCount - 1000 / questions.size()) < 50);
 }

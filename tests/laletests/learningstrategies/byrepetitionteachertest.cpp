@@ -37,6 +37,7 @@ void ByRepetitionTeacherTest::testGivesUniformlyChoosenRandomQuestionsAtStart()
     QList<Question> questions;
     questions << Question("question1", "answer1") << Question("question2", "answer2");
     questions << Question("question3", "answer3") << Question("question4", "answer4");
+    questions << Question("question5", "answer5") << Question("question6", "answer6");
 
     QPointer<ScoreRepository> scoreRepo(new ScoreRepository(QSqlDatabase::database("SimpleTeacherTest")));
     ByRepetitionTeacher teacher(questions, scoreRepo, RandomGenerator());
@@ -50,7 +51,7 @@ void ByRepetitionTeacherTest::testGivesUniformlyChoosenRandomQuestionsAtStart()
         }
     }
 
-    QVERIFY(abs(question1GivenCount - 1000 / 4) < 50);
+    QVERIFY(abs(question1GivenCount - 1000 / questions.size()) < 50);
 }
 
 void ByRepetitionTeacherTest::testDontGiveTheSameQuestionTwoTimesInARow()
@@ -58,6 +59,7 @@ void ByRepetitionTeacherTest::testDontGiveTheSameQuestionTwoTimesInARow()
     QList<Question> questions;
     questions << Question("question1", "answer1") << Question("question2", "answer2");
     questions << Question("question3", "answer3") << Question("question4", "answer4");
+    questions << Question("question5", "answer5") << Question("question6", "answer6");
 
     QPointer<ScoreRepository> scoreRepo(new ScoreRepository(QSqlDatabase::database("SimpleTeacherTest")));
     ByRepetitionTeacher teacher(questions, scoreRepo, RandomGenerator());

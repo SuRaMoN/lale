@@ -15,8 +15,9 @@ class ByRepetitionTeacher : public Teacher
 protected:
     unsigned int repeatPoolMaxScoreSum;
     unsigned int numRightAnswersToRemoveFromRepeatPool;
+    int numQuestionsBeforeRepititionAllowed;
 
-    lale::core::Question previousQuestion;
+    QList<lale::core::Question> previousQuestions;
     QPointer<lale::core::ScoreRepository> scoreRepo;
     lale::core::RandomGenerator randomGenerator;
     lale::core::RouletteWheelSelector<lale::core::Question> randomQuestionPicker;

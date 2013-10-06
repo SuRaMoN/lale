@@ -5,13 +5,13 @@ using namespace lale::core;
 
 ByRepetitionTeacher::ByRepetitionTeacher(QList<Question> questions, QPointer<ScoreRepository> scoreRepo, RandomGenerator aRandomGenerator, QObject *parent) :
     Teacher(questions, parent),
-    previousQuestion("", ""),
     randomGenerator(aRandomGenerator),
     randomQuestionPicker(aRandomGenerator),
     repeatPoolRandomQuestionPicker(aRandomGenerator)
 {
     repeatPoolMaxScoreSum = 6;
     numRightAnswersToRemoveFromRepeatPool = 4;
+    numQuestionsBeforeRepititionAllowed = 3;
 
     this->scoreRepo = scoreRepo;
     foreach(Question question, questions) {
@@ -26,10 +26,13 @@ ByRepetitionTeacher::~ByRepetitionTeacher()
 void ByRepetitionTeacher::provideNewQuestion()
 {
     Question newQuestionCandidate = getNewQuestionCandidate();
-    for(int i = 0; i < 100 && newQuestionCandidate == previousQuestion; ++i) {
+    for(int i = 0; i < 20 && previousQuestions.contains(newQuestionCandidate); ++i) {
         newQuestionCandidate = getNewQuestionCandidate();
     }
-    previousQuestion = newQuestionCandidate;
+    previousQuestions.append(newQuestionCandidate);
+    if(previousQuestions.size() > numQuestionsBeforeRepititionAllowed) {
+        previousQuestions.removeFirst();
+    }
     emit newQuestion(newQuestionCandidate);
 }
 
