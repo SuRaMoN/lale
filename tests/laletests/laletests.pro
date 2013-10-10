@@ -51,6 +51,7 @@ SOURCES += \
     core/question.cpp \
     core/questionreader.cpp \
     core/randomgenerator.cpp \
+    core/impl/randomgeneratorimpl.cpp \
     core/scorerepository.cpp \
     core/statisticscalculator.cpp \
     learningstrategies/byrepetitionteacher.cpp \
@@ -63,6 +64,7 @@ HEADERS += app/libs.h \
     core/question.h \
     core/questionreader.h \
     core/randomgenerator.h \
+    core/impl/randomgeneratorimpl.h \
     core/roulettewheelselector.h \
     core/scorerepository.h \
     core/statisticscalculator.h \

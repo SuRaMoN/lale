@@ -2,6 +2,7 @@
 #define LALE_CORE_ROULETTEWHEELSELECTOR_H
 
 #include "app/libs.h"
+#include <stdexcept>
 #include "core/randomgenerator.h"
 
 namespace lale { namespace core {

@@ -5,11 +5,12 @@
 
 namespace lale { namespace core {
 
+namespace impl { class RandomGeneratorImpl; }
+
 class RandomGenerator
 {
 protected:
-    boost::shared_ptr<boost::mt19937> seed;
-    int getSeedInput();
+    boost::shared_ptr<impl::RandomGeneratorImpl> impl;
 
 public:
     RandomGenerator();

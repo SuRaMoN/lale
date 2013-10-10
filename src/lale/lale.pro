@@ -25,7 +25,8 @@ SOURCES += main.cpp \
     learningstrategies/simpleteacher.cpp \
     learningstrategies/naiveteacher.cpp \
     gui/statisticswindow.cpp \
-    core/statisticscalculator.cpp
+    core/statisticscalculator.cpp \
+    core/impl/randomgeneratorimpl.cpp
 
 HEADERS  += \
     app/application.h \
@@ -43,7 +44,8 @@ HEADERS  += \
     learningstrategies/naiveteacher.h \
     gui/statisticswindow.h \
     core/statisticscalculator.h \
-    core/statistics.h
+    core/statistics.h \
+    core/impl/randomgeneratorimpl.h
 
 FORMS += \
     gui/mainwindow.ui \

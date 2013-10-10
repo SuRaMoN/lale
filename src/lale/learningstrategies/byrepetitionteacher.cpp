@@ -1,5 +1,8 @@
 #include "byrepetitionteacher.h"
 
+#include <cmath>
+
+
 using namespace lale::learningstrategies;
 using namespace lale::core;
 

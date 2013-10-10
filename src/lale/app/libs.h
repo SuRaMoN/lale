@@ -6,14 +6,8 @@
 #endif // QT_GUI_LIB
 
 
-#include <boost/optional.hpp>
-#include <boost/random/mersenne_twister.hpp>
 #include <boost/shared_ptr.hpp>
-#include <cmath>
-#include <exception>
-#include <iostream>
 #include <limits>
-#include <map>
 #include <QDebug>
 #include <QFileInfo>
 #include <QList>
@@ -24,6 +18,3 @@
 #include <QStringList>
 #include <QVariant>
 #include <QxtCsvModel>
-#include <stdexcept>
-#include <utility>
-
