@@ -5,12 +5,15 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = lale
 TEMPLATE = app
-CONFIG += qxt precompile_header
-QXT += core gui
+CONFIG += precompile_header
 PRECOMPILED_HEADER = app/libs.h
 DEFINES += USING_PCH
+LIBS += -lboost_system -lboost_locale
 
 RESOURCES = dbmigrations.qrc
+
+INCLUDEPATH += ../../vendor/csvtools/src
+DEPENDPATH += ../../vendor/csvtools/src
 
 SOURCES += main.cpp \
     app/application.cpp \

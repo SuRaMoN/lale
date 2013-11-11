@@ -3,20 +3,21 @@ QT += core sql
 QT -= gui
 
 TARGET = laletests
-CONFIG += console qxt qtestlib precompile_header debug
+CONFIG += console qtestlib precompile_header debug
 CONFIG -= app_bundle
 QMAKE_CXXFLAGS_DEBUG += -D_GLIBCXX_DEBUG
-QXT += core
 PRECOMPILED_HEADER = app/libs.h
 DEFINES += USING_PCH
+LIBS += -lboost_system -lboost_locale
 
 TEMPLATE = app
 
-INCLUDEPATH += ../../src/lale
-DEPENDPATH += ../../src/lale
+INCLUDEPATH += ../../src/lale ../../vendor/csvtools/src
+DEPENDPATH += ../../src/lale ../../vendor/csvtools/src
 
 
 RESOURCES = testdata.qrc dbmigrations.qrc
+
 
 # test sources/headers
 SOURCES += main.cpp \

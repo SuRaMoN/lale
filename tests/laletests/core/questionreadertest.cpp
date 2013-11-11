@@ -20,7 +20,8 @@ void QuestionReaderTest::testFetchingQuestions()
     QFile questionFile(":core/testdata/vocabularium.csv");
     QList<Question> questions = questionReader.fetchAllQuestions(questionFile);
 
+
     QCOMPARE(questions.size(), 5);
-    QCOMPARE(questions.first().getQuestion(), QString("drukletter"));
+    QVERIFY(questions.first().getQuestion() == QString("druk\nletter"));
     QCOMPARE(questions.last().getAnswer().length(), 14);
 }
