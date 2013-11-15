@@ -6,7 +6,7 @@ lale:
 	ROOT="$$(pwd)" && \
 	mkdir -p build/release && \
 	cd build/release && \
-	qmake "$$ROOT/src/lale" && \
+	qmake-qt4 "$$ROOT/src/lale" && \
 	make -j && \
 	cp lale "$$ROOT"
 
@@ -20,7 +20,7 @@ tests:
 	ROOT="$$(pwd)" && \
 	mkdir -p build/tests && \
 	cd build/tests && \
-	qmake "$$ROOT/tests/laletests" && \
+	qmake-qt4 "$$ROOT/tests/laletests" && \
 	make -j
 
 run-tests: tests
