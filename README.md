@@ -7,6 +7,11 @@ Lale is a Language Learner: it helps you learn things by asking you a set of giv
 
 Compilation
 ===========
+Clone the project using:
+
+    git clone --recursive git@github.com:SuRaMoN/lale.git
+    cd lale
+
 Lale compiles with qmake and qt4 using [qxt](http://dev.libqxt.org/libqxt/wiki/Home) as extra dependecy. Debian based operating systems can install the dependencies by running:
 
     make get-deps-ubuntu
