@@ -22,5 +22,5 @@ Provided all the dependecies are installed, compiling is as simple as running:
 
 To build and run the test suite, just type the following in your favorite terminal:
 
-    make run-tests
+    make test
 
